@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almanya 101 | Çok Yakında</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+        
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: #000000;
+        }
+        
+        .accent-yellow { color: #FFCC00; }
+        .bg-accent-yellow { background-color: #FFCC00; }
+        .border-accent-yellow { border-color: #FFCC00; }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+
+        .custom-shadow {
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.15);
+        }
+
+        .btn-hover:hover {
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="hero-gradient text-white min-h-screen flex flex-col items-center justify-center p-6 overflow-hidden">
+
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#FFCC00] opacity-[0.03] rounded-full -mr-32 -mt-32 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#FFCC00] opacity-[0.05] rounded-full -ml-48 -mb-48 blur-3xl"></div>
+
+    <main class="max-w-5xl w-full text-center z-10">
+        
+        <div class="mb-12 animate-fade-in">
+            <div class="inline-block px-4 py-1 border border-accent-yellow/30 rounded-full text-xs tracking-[0.4em] mb-6 text-accent-yellow font-bold">
+                YAKINDA GELİYOR
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4">
+                ALMANYA<span class="accent-yellow italic">101</span>
+            </h1>
+            <div class="h-1 w-24 bg-accent-yellow mx-auto rounded-full"></div>
+        </div>
+
+        <section class="space-y-6 mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold leading-tight max-w-3xl mx-auto">
+                Yeni bir ülke, yeni bir hayat.<br>
+                <span class="text-gray-400">Yabancılık çekmeyin diye buradayız.</span>
+            </h2>
+            <p class="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                Vize süreçlerinden bürokrasiye, günlük yaşamdan iş kültürüne kadar ihtiyacınız olan her şey tek bir rehberde toplanıyor.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+            <div class="bg-[#111] p-6 rounded-2xl border border-white/5 custom-shadow group hover:border-accent-yellow/50 transition-all">
+                <i class="fas fa-passport text-2xl accent-yellow mb-3 block"></i>
+                <span class="text-sm font-semibold tracking-wide">BÜROKRASİ</span>
+            </div>
+            <div class="bg-[#111] p-6 rounded-2xl border border-white/5 custom-shadow group hover:border-accent-yellow/50 transition-all">
+                <i class="fas fa-graduation-cap text-2xl accent-yellow mb-3 block"></i>
+                <span class="text-sm font-semibold tracking-wide">EĞİTİM</span>
+            </div>
+            <div class="bg-[#111] p-6 rounded-2xl border border-white/5 custom-shadow group hover:border-accent-yellow/50 transition-all">
+                <i class="fas fa-heartbeat text-2xl accent-yellow mb-3 block"></i>
+                <span class="text-sm font-semibold tracking-wide">SAĞLIK</span>
+            </div>
+            <div class="bg-[#111] p-6 rounded-2xl border border-white/5 custom-shadow group hover:border-accent-yellow/50 transition-all">
+                <i class="fas fa-utensils text-2xl accent-yellow mb-3 block"></i>
+                <span class="text-sm font-semibold tracking-wide">YAŞAM</span>
+            </div>
+        </div>
+
+        <div class="max-w-md mx-auto">
+            <form class="relative flex items-center">
+                <input type="email" placeholder="E-posta adresinizi bırakın..." 
+                       class="w-full px-6 py-4 rounded-full bg-[#1a1a1a] border border-white/10 focus:outline-none focus:border-accent-yellow transition-all pr-40 text-sm">
+                <button class="absolute right-2 bg-accent-yellow text-black px-6 py-2.5 rounded-full font-bold text-sm btn-hover transition-all">
+                    Kayıt Ol
+                </button>
+            </form>
+            <p class="text-[10px] text-gray-600 mt-4 tracking-widest uppercase">İlk bültenle birlikte yayında olacağız</p>
+        </div>
+
+    </main>
+
+    <footer class="absolute bottom-8 flex flex-col items-center space-y-4">
+        <div class="flex space-x-8">
+            <a href="#" class="text-gray-500 hover:text-accent-yellow transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="#" class="text-gray-500 hover:text-accent-yellow transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
+            <a href="#" class="text-gray-500 hover:text-accent-yellow transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
