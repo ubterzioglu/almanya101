@@ -1,48 +1,29 @@
 export const dynamic = "force-dynamic";
-import Link from "next/link";
+
 import { supabasePublic } from "@/lib/supabasePublic";
+import QASearch from "@/app/ui/QASearch";
 
-type QuestionRow = {
-  id: string;
-  title: string;
-  slug: string;
-  created_at: string;
-};
-
-export default async function Sorular() {
+export default async function Home() {
   const { data, error } = await supabasePublic
     .from("questions")
-    .select("id,title,slug,created_at")
+    .select("id,title,slug,body,created_at,answers(id,body,author_name,created_at)")
     .eq("status", "published")
     .order("created_at", { ascending: false })
-    .limit(50);
+    .limit(1000);
 
   if (error) {
     return (
-      <main style={{ maxWidth: 860, margin: "0 auto", padding: 24 }}>
-        <h1>Sorular</h1>
+      <main style={{ maxWidth: 980, margin: "0 auto", padding: 24 }}>
+        <h1>almanya101</h1>
         <p>DB error: {error.message}</p>
       </main>
     );
   }
 
-  const rows = (data ?? []) as QuestionRow[];
-
   return (
-    <main style={{ maxWidth: 860, margin: "0 auto", padding: 24 }}>
-      <h1>Sorular</h1>
-
-      {rows.length === 0 ? (
-        <p>Henüz soru yok.</p>
-      ) : (
-        <ul>
-          {rows.map((q) => (
-            <li key={q.id}>
-              <Link href={`/q/${q.slug}`}>{q.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+    <main style={{ maxWidth: 980, margin: "0 auto", padding: 24 }}>
+      <h1>almanya101 — Soru & Cevap</h1>
+      <QASearch initialData={(data ?? []) as any[]} />
     </main>
   );
 }
