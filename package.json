@@ -1,28 +1,13 @@
 {
-  "name": "almanya101de",
-  "version": "0.1.0",
+  "name": "almanya101-static-qa",
   "private": true,
+  "version": "1.0.0",
+  "description": "almanya101.de static site + QA form (Vercel serverless + Zoho SMTP)",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "npx vercel dev",
+    "start": "npx vercel dev"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.89.0",
-    "next": "16.1.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "nodemailer": "^6.9.14"
   }
 }

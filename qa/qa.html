@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QA | almanya101.de</title>
+  <link rel="stylesheet" href="/style-shared.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <a class="badge" href="/index.html">← Ana sayfa</a>
+      <h1>QA</h1>
+      <p class="muted">Sorunu yaz, bize mail olarak gelsin. Admin paneli sonra.</p>
+    </header>
+
+    <section class="card">
+      <h2>Soru gönder</h2>
+
+      <form id="qaForm" novalidate>
+        <!-- Honeypot (botlar doldurur, insanlar görmez) -->
+        <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
+          <label>Website</label>
+          <input class="input" type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+        </div>
+
+        <label for="question">Sorun</label>
+        <textarea id="question" name="question" required minlength="10" maxlength="1500"
+          placeholder="Örn: Almanya'ya yeni geldim, Anmeldung nasıl yapılır?"></textarea>
+        <div class="muted"><small><span id="count">0</span>/1500</small></div>
+
+        <div class="row">
+          <div>
+            <label for="email">E-posta (opsiyonel)</label>
+            <input class="input" id="email" name="email" type="email" placeholder="siz@ornek.com" />
+          </div>
+          <div>
+            <label for="name">İsim (opsiyonel)</label>
+            <input class="input" id="name" name="name" type="text" maxlength="120" placeholder="Adınız" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="submitBtn" type="submit">Gönder</button>
+          <a class="btn secondary" href="/index.html">Vazgeç</a>
+          <span class="badge">Mail: qa@almanya101.de</span>
+        </div>
+
+        <div id="msg" class="msg" style="display:none;"></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Not</h2>
+      <p class="muted">
+        Bu ilk sürümde sorular DB’ye yazılmıyor; doğrudan e-posta ile geliyor.
+        Sonraki adımda admin panel + onaylananları yayınlama ekleriz.
+      </p>
+    </section>
+  </main>
+
+  <script src="/qa/qa.js"></script>
+</body>
+</html>
