@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "almanya101.de static site + QA form (Vercel serverless + Zoho SMTP)",
   "scripts": {
+    "vercel-build": "echo \"Static site – no build step\"",
     "dev": "npx vercel dev",
     "start": "npx vercel dev"
   },
