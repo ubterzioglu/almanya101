@@ -1,6 +1,6 @@
 # almanya101.de (Static HTML) + QA Form (Zoho Mail)
 
-## Structure
+## Structurea
 - index.html
 - style-shared.css
 - qa/qa.html
