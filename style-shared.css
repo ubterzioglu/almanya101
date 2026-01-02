@@ -90,3 +90,168 @@ label{display:block; margin:10px 0 6px}
 
 .footer{margin-top:22px}
 small{opacity:.85}
+
+/* Breadcrumb Navigation - SEO & UX */
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '›';
+  margin-left: 8px;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--text);
+}
+
+.breadcrumb li:last-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Summary Section - AI-friendly */
+.summary-section {
+  background: linear-gradient(180deg, rgba(42, 109, 245, 0.1), rgba(42, 109, 245, 0.05));
+  border-color: rgba(42, 109, 245, 0.3);
+}
+
+.summary-section h2 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+.summary-section ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.summary-section li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Q&A Items - Semantic & AI-friendly */
+.qa-item {
+  padding: 16px;
+  margin: 12px 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.qa-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.qa-item article {
+  display: block;
+}
+
+.qa-item h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.qa-item p {
+  margin: 0 0 10px 0;
+  line-height: 1.7;
+  color: rgba(232, 238, 252, 0.9);
+}
+
+.qa-item .qa-meta {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(42, 109, 245, 0.15);
+  border: 1px solid rgba(42, 109, 245, 0.3);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Related Links Section */
+.card h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+.card ul li a {
+  color: var(--btn);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.card ul li a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Accessibility improvements */
+[role="list"] {
+  list-style: none;
+}
+
+[aria-label] {
+  /* Ensure screen readers can access these */
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .breadcrumb {
+    font-size: 13px;
+  }
+
+  .qa-item h3 {
+    font-size: 16px;
+  }
+
+  .summary-section ul {
+    padding-left: 16px;
+  }
+}
