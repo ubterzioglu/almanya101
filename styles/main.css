@@ -3,45 +3,52 @@
    ============================================ */
 
 /* ============================================
-   CSS VARIABLES & RESET
+   CSS VARIABLES & RESET - ALMANYA 🇩🇪 + TÜRKIYE 🇹🇷
    ============================================ */
 :root {
-    /* Colors - Dark Theme */
-    --bg-primary: #0a0f1c;
-    --bg-secondary: #131929;
-    --bg-tertiary: #1a2235;
-    --bg-card: rgba(26, 34, 53, 0.6);
-    --bg-card-hover: rgba(26, 34, 53, 0.8);
+    /* Primary Color Palette - Almanya + Türkiye */
+    --yellow-primary: #F2C94C;    /* Soft Yellow - Almanya flag */
+    --black-primary: #000000;     /* Siyah - Dominant */
+    --red-accent: #D00000;        /* Kırmızı - CTA & Türkiye flag */
+    --white-primary: #FFFFFF;     /* Beyaz - Spacing */
+
+    /* Backgrounds */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --bg-card: rgba(26, 26, 26, 0.8);
+    --bg-card-hover: rgba(242, 201, 76, 0.12);
 
     /* Text Colors */
     --text-primary: #ffffff;
-    --text-secondary: #a0aec0;
-    --text-muted: #718096;
+    --text-secondary: #b8b8b8;
+    --text-muted: #888888;
+    --text-highlight: #F2C94C;
 
     /* Accent Colors */
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --accent-tertiary: #ec4899;
+    --accent-primary: #F2C94C;     /* Yellow primary */
+    --accent-secondary: #FFD966;   /* Lighter yellow */
+    --accent-tertiary: #D00000;    /* Red accent */
     --accent-success: #10b981;
-    --accent-warning: #f59e0b;
+    --accent-warning: #F2C94C;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-    --gradient-orb-1: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-    --gradient-orb-2: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
-    --gradient-orb-3: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
+    /* Gradients - Almanya Colors */
+    --gradient-primary: linear-gradient(135deg, #F2C94C 0%, #FFD966 50%, #D00000 100%);
+    --gradient-secondary: linear-gradient(135deg, #F2C94C 0%, #FFD966 100%);
+    --gradient-orb-1: radial-gradient(circle, rgba(242, 201, 76, 0.25) 0%, transparent 70%);
+    --gradient-orb-2: radial-gradient(circle, rgba(255, 217, 102, 0.2) 0%, transparent 70%);
+    --gradient-orb-3: radial-gradient(circle, rgba(208, 0, 0, 0.15) 0%, transparent 70%);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+    --shadow-glow: 0 0 20px rgba(242, 201, 76, 0.4);
 
     /* Glassmorphism */
-    --glass-bg: rgba(26, 34, 53, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(26, 26, 26, 0.6);
+    --glass-border: rgba(242, 201, 76, 0.2);
     --glass-blur: 20px;
 
     /* Spacing */
@@ -163,8 +170,8 @@ a {
 
 .navbar.scrolled {
     padding: var(--spacing-md) 0;
-    background: rgba(10, 15, 28, 0.95);
-    box-shadow: var(--shadow-lg);
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: var(--shadow-lg), 0 1px 0 rgba(242, 201, 76, 0.1);
 }
 
 .nav-container {
@@ -198,11 +205,12 @@ a {
 }
 
 .logo-highlight {
-    color: var(--accent-primary);
+    color: var(--yellow-primary);
+    text-shadow: 0 0 10px rgba(242, 201, 76, 0.3);
 }
 
 .logo-dot {
-    color: var(--accent-tertiary);
+    color: var(--red-accent);
 }
 
 .logo-de {
@@ -336,18 +344,20 @@ a {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--gradient-primary);
+    background: var(--red-accent); /* CTA - Türkiye red */
     color: white;
     border-radius: var(--radius-full);
     font-weight: 600;
     font-size: 0.95rem;
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 20px rgba(208, 0, 0, 0.3);
+    border: 1px solid rgba(208, 0, 0, 0.5);
     transition: all var(--transition-base);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+    background: #FF0000; /* Brighter red on hover */
+    box-shadow: 0 0 30px rgba(208, 0, 0, 0.6);
 }
 
 /* Mobile Menu Toggle */
@@ -388,7 +398,7 @@ a {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: radial-gradient(ellipse at top, #1a2235 0%, var(--bg-primary) 50%);
+    background: radial-gradient(ellipse at top, rgba(242, 201, 76, 0.08) 0%, var(--bg-primary) 50%);
 }
 
 .gradient-orb {
@@ -473,10 +483,10 @@ a {
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+        box-shadow: 0 0 0 0 rgba(242, 201, 76, 0.4);
     }
     50% {
-        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+        box-shadow: 0 0 0 10px rgba(242, 201, 76, 0);
     }
 }
 
@@ -537,25 +547,27 @@ a {
 }
 
 .btn-hero-primary {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    background: var(--gradient-primary); /* Yellow to Red gradient */
+    color: var(--black-primary); /* Black text for readability */
+    box-shadow: 0 4px 20px rgba(242, 201, 76, 0.4);
+    border: 1px solid rgba(242, 201, 76, 0.3);
 }
 
 .btn-hero-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 8px 30px rgba(242, 201, 76, 0.6);
 }
 
 .btn-hero-secondary {
-    background: var(--bg-card);
+    background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--yellow-primary);
     color: var(--text-primary);
 }
 
 .btn-hero-secondary:hover {
-    background: var(--bg-card-hover);
+    background: rgba(242, 201, 76, 0.15);
+    border-color: var(--accent-secondary);
     transform: translateY(-4px);
 }
 
@@ -712,7 +724,7 @@ section {
 .category-card:hover {
     transform: translateY(-8px);
     background: var(--bg-card-hover);
-    box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.2);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(242, 201, 76, 0.2);
 }
 
 .category-card:hover::before {
@@ -720,7 +732,7 @@ section {
 }
 
 .category-card-featured {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(242, 201, 76, 0.15) 0%, rgba(208, 0, 0, 0.1) 100%);
     border: 2px solid var(--accent-primary);
 }
 
@@ -758,43 +770,43 @@ section {
 }
 
 .icon-news {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
-    color: #3b82f6;
+    background: linear-gradient(135deg, rgba(242, 201, 76, 0.25) 0%, rgba(255, 217, 102, 0.2) 100%);
+    color: var(--yellow-primary);
 }
 
 .icon-tools {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
-    color: #8b5cf6;
+    background: linear-gradient(135deg, rgba(242, 201, 76, 0.2) 0%, rgba(208, 0, 0, 0.15) 100%);
+    color: #FFD966;
 }
 
 .icon-qa {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(244, 114, 182, 0.2) 100%);
-    color: #ec4899;
+    background: linear-gradient(135deg, rgba(208, 0, 0, 0.25) 0%, rgba(255, 50, 50, 0.2) 100%);
+    color: var(--red-accent);
 }
 
 .icon-insurance {
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%);
-    color: #10b981;
+    color: #10b981; /* Keep green for insurance (success/security) */
 }
 
 .icon-blog {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.2) 100%);
-    color: #f59e0b;
+    background: linear-gradient(135deg, rgba(255, 217, 102, 0.25) 0%, rgba(242, 201, 76, 0.2) 100%);
+    color: #FFD966;
 }
 
 .icon-events {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
-    color: #ef4444;
+    background: linear-gradient(135deg, rgba(208, 0, 0, 0.2) 0%, rgba(180, 0, 0, 0.15) 100%);
+    color: #FF4444;
 }
 
 .icon-expert {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(79, 70, 229, 0.2) 100%);
-    color: #6366f1;
+    background: linear-gradient(135deg, rgba(242, 201, 76, 0.3) 0%, rgba(208, 0, 0, 0.2) 100%);
+    color: var(--yellow-primary);
 }
 
 .icon-documents {
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(14, 165, 233, 0.2) 100%);
-    color: #06b6d4;
+    background: linear-gradient(135deg, rgba(255, 217, 102, 0.2) 0%, rgba(242, 201, 76, 0.15) 100%);
+    color: #F2C94C;
 }
 
 .category-title {
@@ -914,7 +926,7 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
     padding: var(--spacing-3xl);
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, var(--red-accent) 0%, #8B0000 100%); /* Red CTA - Türkiye */
     border-radius: var(--radius-2xl);
     overflow: hidden;
 }
@@ -963,13 +975,15 @@ section {
 }
 
 .btn-cta-primary {
-    background: white;
-    color: var(--accent-primary);
+    background: var(--yellow-primary); /* Yellow button on red background */
+    color: var(--black-primary);
+    font-weight: 700;
 }
 
 .btn-cta-primary:hover {
+    background: var(--accent-secondary);
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(242, 201, 76, 0.5);
 }
 
 .btn-cta-secondary {
@@ -1071,8 +1085,9 @@ section {
 }
 
 .social-links a:hover {
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--yellow-primary);
+    color: var(--black-primary);
+    border-color: var(--yellow-primary);
     transform: translateY(-4px);
 }
 
