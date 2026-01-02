@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Table of Contents
+## 📋 Table of Contents Güzel Hazırlanmış!
 
 1. [Overview](#overview)
 2. [Technical SEO](#technical-seo)
