@@ -11,22 +11,36 @@
     <header class="header">
       <a class="badge" href="/index.html">← Ana sayfa</a>
       <h1>QA</h1>
-      <p class="muted">Sorunu yaz, bize mail olarak gelsin. Admin paneli sonra.</p>
+      <p class="muted">Hazır Soru–Cevaplar + soru gönderme formu.</p>
     </header>
 
+    <!-- DB'den gelen QA listesi -->
+    <section class="card">
+      <h2>Hazır sorular</h2>
+      <p class="muted">Aşağıdaki içerik veritabanından yüklenir.</p>
+      <div id="qa-list"></div>
+    </section>
+
+    <!-- Mail ile soru gönderme -->
     <section class="card">
       <h2>Soru gönder</h2>
 
       <form id="qaForm" novalidate>
         <!-- Honeypot (botlar doldurur, insanlar görmez) -->
         <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
-          <label>Website</label>
+          <label for="website">Website</label>
           <input class="input" type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
         </div>
 
         <label for="question">Sorun</label>
-        <textarea id="question" name="question" required minlength="10" maxlength="1500"
-          placeholder="Örn: Almanya'ya yeni geldim, Anmeldung nasıl yapılır?"></textarea>
+        <textarea
+          id="question"
+          name="question"
+          required
+          minlength="10"
+          maxlength="1500"
+          placeholder="Örn: Almanya'ya yeni geldim, Anmeldung nasıl yapılır?"
+        ></textarea>
         <div class="muted"><small><span id="count">0</span>/1500</small></div>
 
         <div class="row">
@@ -53,8 +67,8 @@
     <section class="card">
       <h2>Not</h2>
       <p class="muted">
-        Bu ilk sürümde sorular DB’ye yazılmıyor; doğrudan e-posta ile geliyor.
-        Sonraki adımda admin panel + onaylananları yayınlama ekleriz.
+        “Soru gönder” formu şu an soruyu DB’ye yazmaz; e-posta olarak iletir.
+        “Hazır sorular” bölümü ise DB’den okunur (yayında olanlar).
       </p>
     </section>
   </main>
