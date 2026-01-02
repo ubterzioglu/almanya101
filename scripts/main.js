@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation scroll effect
     initNavbar();
 
-    // Theme toggle
-    initThemeToggle();
-
     // Counter animation
     initCounters();
 
@@ -55,37 +52,6 @@ function initNavbar() {
 
         lastScroll = currentScroll;
     });
-}
-
-// ============================================
-// THEME TOGGLE
-// ============================================
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-theme');
-        updateThemeIcon(themeToggle, true);
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-theme');
-        const isLight = body.classList.contains('light-theme');
-
-        // Save preference
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-
-        // Update icon
-        updateThemeIcon(themeToggle, isLight);
-    });
-}
-
-function updateThemeIcon(button, isLight) {
-    const icon = button.querySelector('i');
-    icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
 }
 
 // ============================================

@@ -86,22 +86,6 @@
     --z-tooltip: 1060;
 }
 
-/* Light Theme */
-body.light-theme {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f7fafc;
-    --bg-tertiary: #edf2f7;
-    --bg-card: rgba(255, 255, 255, 0.8);
-    --bg-card-hover: rgba(255, 255, 255, 0.95);
-
-    --text-primary: #1a202c;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-
-    --glass-bg: rgba(255, 255, 255, 0.5);
-    --glass-border: rgba(0, 0, 0, 0.1);
-}
-
 /* Reset & Base Styles */
 * {
     margin: 0;
@@ -319,26 +303,6 @@ a {
     gap: var(--spacing-md);
 }
 
-.theme-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-base);
-}
-
-.theme-toggle:hover {
-    color: var(--text-primary);
-    background: var(--bg-card-hover);
-    transform: rotate(15deg);
-}
-
 .btn-primary {
     display: flex;
     align-items: center;
@@ -371,6 +335,7 @@ a {
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: var(--z-fixed);
 }
 
 .mobile-menu-toggle span {
@@ -379,6 +344,19 @@ a {
     background: var(--text-primary);
     border-radius: var(--radius-full);
     transition: all var(--transition-base);
+}
+
+/* Hamburger Animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ============================================
@@ -1136,6 +1114,48 @@ section {
 @media (max-width: 1024px) {
     .nav-menu {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+        z-index: var(--z-modal);
+        padding: var(--spacing-3xl);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        font-size: 1.25rem;
+        padding: var(--spacing-lg);
+        justify-content: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        margin-top: var(--spacing-md);
+        background: rgba(26, 26, 26, 0.8);
     }
 
     .mobile-menu-toggle {
