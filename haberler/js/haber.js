@@ -13,9 +13,45 @@
   const searchInput = document.getElementById('searchInput');
   const chips = Array.from(document.querySelectorAll('.chip'));
 
+  const placeholderNews = [
+    {
+      id: 'HABER00001',
+      title: 'Dünya ekonomisinde yumuşak iniş beklentisi',
+      summary: 'IMF ve Dünya Bankası, 2026 tahminlerinde büyümenin sınırlı ama istikrarlı süreceğini açıkladı.',
+      body: 'Enerji fiyatlarındaki gerileme ve tedarik zincirlerindeki iyileşme, 2026 için enflasyon baskılarını hafifletiyor. Ancak jeopolitik riskler ve bölgesel seçim takvimleri, yatırımcı iştahını sınırlı tutmaya devam ediyor.',
+      tag: 'dunya',
+      image_url: '/img/haberler/HABER00001.jpg'
+    },
+    {
+      id: 'HABER00002',
+      title: 'AB’de yeşil mutabakat yatırımları hızlanıyor',
+      summary: 'Yeni teşvik paketi, enerji verimliliği projelerine ek fon sağlıyor.',
+      body: 'Komisyon, 2030 hedeflerine ulaşmak için özellikle bina yalıtımı, toplu taşıma ve batarya teknolojilerine odaklanacak. Üye ülkeler, paylaşımlı finansman modeliyle ilerleyecek.',
+      tag: 'avrupa',
+      image_url: '/img/haberler/HABER00002.jpg'
+    },
+    {
+      id: 'HABER00003',
+      title: 'Almanya’da nitelikli göç reformu yürürlükte',
+      summary: 'Mavi Kart eşiklerinin düşmesi ve tanınma süreçlerinin hızlanması bekleniyor.',
+      body: 'Yeni düzenleme, vasıflı iş gücünün ülkeye daha hızlı entegre olmasını hedefliyor. Dijital randevu sistemi ve hızlandırılmış diploma denklik süreçleri, başvuru sahiplerinin bekleme süresini kısaltacak.',
+      tag: 'almanya',
+      image_url: '/img/haberler/HABER00003.jpg'
+    },
+    {
+      id: 'HABER00004',
+      title: 'Türkiye’de teknoloji ihracatı rekor kırdı',
+      summary: 'SaaS ve oyun dikeylerinde yeni unicorn adayları öne çıkıyor.',
+      body: 'Yıllık rapora göre, küresel pazarlara açılan yerli girişimler döviz girdisini artırırken, Ar-Ge merkezleri için ek teşvikler gündemde. Ürünleştirme ve global satış ekipleri ölçeklenmeye hazırlanıyor.',
+      tag: 'turkiye',
+      image_url: '/img/haberler/HABER00004.jpg'
+    }
+  ];
+
   let allNews = [];
   let activeTag = 'all';
   let searchTerm = '';
+  let metaNote = '';
 
   init();
 
@@ -41,15 +77,27 @@
 
   async function fetchNews() {
     setLoading(true);
+    errorState.classList.add('hidden');
+    errorState.textContent = 'Haberler yüklenemedi. Lütfen sayfayı yenileyin.';
     try {
       const res = await fetch('/api/news-list');
       if (!res.ok) throw new Error('Fetch failed');
       const json = await res.json();
       allNews = Array.isArray(json.items) ? json.items : [];
+      if (!allNews.length) {
+        allNews = placeholderNews;
+        metaNote = ' (örnek veriler gösteriliyor)';
+      } else {
+        metaNote = '';
+      }
       renderFiltered();
     } catch (err) {
       console.error('Haberler alınamadı', err);
-      showError();
+      errorState.classList.remove('hidden');
+      errorState.textContent = 'Canlı haber akışına ulaşılamadı, örnek içerik gösteriliyor.';
+      allNews = placeholderNews;
+      metaNote = ' (çevrimdışı mod)';
+      renderFiltered();
     } finally {
       setLoading(false);
     }
@@ -131,7 +179,7 @@
   }
 
   function updateMeta(shown, total) {
-    resultsMeta.textContent = `${shown} / ${total} haber gösteriliyor`;
+    resultsMeta.textContent = `${shown} / ${total} haber gösteriliyor${metaNote}`;
   }
 
   function showError() {

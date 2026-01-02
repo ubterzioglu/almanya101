@@ -143,21 +143,25 @@
                         <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="/haber/dunya" class="dropdown-item">
+                        <a href="/haberler/haberindex.html" class="dropdown-item">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Tüm Haberler</span>
+                        </a>
+                        <a href="/haberler/haberindex.html?tag=dunya" class="dropdown-item">
                             <i class="fas fa-globe"></i>
                             <span>Dünya</span>
                         </a>
-                        <a href="/haber/ekonomi" class="dropdown-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Ekonomi</span>
+                        <a href="/haberler/haberindex.html?tag=avrupa" class="dropdown-item">
+                            <i class="fas fa-earth-europe"></i>
+                            <span>Avrupa</span>
                         </a>
-                        <a href="/haber/gundem" class="dropdown-item">
-                            <i class="fas fa-fire"></i>
-                            <span>Gündem</span>
+                        <a href="/haberler/haberindex.html?tag=almanya" class="dropdown-item">
+                            <i class="fas fa-flag"></i>
+                            <span>Almanya</span>
                         </a>
-                        <a href="/haber/siyaset" class="dropdown-item">
-                            <i class="fas fa-landmark"></i>
-                            <span>Siyaset</span>
+                        <a href="/haberler/haberindex.html?tag=turkiye" class="dropdown-item">
+                            <i class="fas fa-star-and-crescent"></i>
+                            <span>Türkiye</span>
                         </a>
                     </div>
                 </div>
@@ -169,50 +173,51 @@
                         <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-large">
-                        <a href="/araclar/maas-hesaplama" class="dropdown-item">
+                        <a href="/maas/index.html" class="dropdown-item">
                             <i class="fas fa-calculator"></i>
-                            <span>Net Maaş Hesaplama</span>
+                            <span>Almanya'da Net Maaş Hesaplama</span>
                         </a>
-                        <a href="/araclar/vatandaslik-testi" class="dropdown-item">
-                            <i class="fas fa-flag"></i>
-                            <span>Vatandaşlık & Uyum Testi</span>
+                        <a href="/tatiltr/holiday.html" class="dropdown-item">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Türkiye Tatil Planlayıcı</span>
                         </a>
-                        <a href="/araclar/tatil-gunleri" class="dropdown-item">
-                            <i class="fas fa-calendar-day"></i>
-                            <span>Tatil Günleri</span>
-                        </a>
-                        <a href="/araclar/belgeler" class="dropdown-item">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Belgeler</span>
-                        </a>
-                        <a href="/araclar/ta11-belgesi" class="dropdown-item">
-                            <i class="fas fa-file-medical"></i>
-                            <span>TA11 Belgesi</span>
-                        </a>
-                        <a href="/araclar/at11-belgesi" class="dropdown-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>AT11 Belgesi</span>
-                        </a>
-                        <a href="/araclar/garantor" class="dropdown-item">
-                            <i class="fas fa-handshake"></i>
-                            <span>Garantör Belgesi</span>
-                        </a>
-                        <a href="/araclar/muvafakatname" class="dropdown-item">
-                            <i class="fas fa-child"></i>
-                            <span>Muvafakatname Örneği</span>
-                        </a>
-                        <a href="/araclar/davet-mektubu" class="dropdown-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>Davet Mektubu</span>
+                        <a href="/tatilde/holiday.html" class="dropdown-item">
+                            <i class="fas fa-plane-departure"></i>
+                            <span>Almanya Tatil Planlayıcı</span>
                         </a>
                     </div>
                 </div>
 
                 <div class="nav-item">
-                    <a href="/qa/qa.html" class="nav-link">
+                    <a href="/sigorta" class="nav-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Sigorta</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/etkinlikler" class="nav-link">
+                        <i class="fas fa-calendar-star"></i>
+                        <span>Etkinlikler</span>
+                    </a>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
                         <i class="fas fa-comments"></i>
                         <span>Soru & Cevap</span>
+                        <i class="fas fa-chevron-down"></i>
                     </a>
+                    <div class="dropdown-menu">
+                        <a href="/qa/qa.html" class="dropdown-item">
+                            <i class="fas fa-search"></i>
+                            <span>Soru & Cevap Ara</span>
+                        </a>
+                        <a href="/qa/qa.html#ask" class="dropdown-item">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Soru & Cevap Ekle</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -303,22 +308,23 @@
                 </p>
             </div>
 
-            <div class="category-grid">
-                <!-- Haber & Gündem -->
+                        <div class="category-grid">
+                <!-- Haberler -->
                 <div class="category-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="category-icon icon-news">
                         <i class="fas fa-newspaper"></i>
                     </div>
-                    <h3 class="category-title">Haber & Gündem</h3>
+                    <h3 class="category-title">Haberler</h3>
                     <p class="category-description">
-                        Almanya ve dünyadan güncel haberler, ekonomi, siyaset ve daha fazlası.
+                        Dünya, Avrupa, Almanya ve Türkiye'den tek sayfada filtrelenebilir kartlar.
                     </p>
                     <div class="category-tags">
                         <span class="tag">Dünya</span>
-                        <span class="tag">Ekonomi</span>
-                        <span class="tag">Siyaset</span>
+                        <span class="tag">Avrupa</span>
+                        <span class="tag">Almanya</span>
+                        <span class="tag">Türkiye</span>
                     </div>
-                    <a href="/haber" class="category-link">
+                    <a href="/haberler/haberindex.html" class="category-link">
                         <span>Haberleri Gör</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -333,16 +339,16 @@
                     <div class="category-icon icon-tools">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="category-title">Pratik Araçlar</h3>
+                    <h3 class="category-title">Araçlar</h3>
                     <p class="category-description">
-                        Maaş hesaplama, vatandaşlık testi, belgeler ve daha fazla kullanışlı araç.
+                        Net maaş hesapla, Türkiye ve Almanya tatil planlarını kıyasla.
                     </p>
                     <div class="category-tags">
-                        <span class="tag">Hesaplama</span>
-                        <span class="tag">Testler</span>
-                        <span class="tag">Belgeler</span>
+                        <span class="tag">Net Maaş</span>
+                        <span class="tag">TR Tatil</span>
+                        <span class="tag">DE Tatil</span>
                     </div>
-                    <a href="/araclar" class="category-link">
+                    <a href="/maas/index.html" class="category-link">
                         <span>Araçları Kullan</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -355,121 +361,20 @@
                     </div>
                     <h3 class="category-title">Soru & Cevap</h3>
                     <p class="category-description">
-                        Aklındaki soruları sor, topluluktan cevap al veya geçmiş soruları incele.
+                        Topluluk sorularını ara, dilersen yeni bir soru ekle ve takip et.
                     </p>
                     <div class="category-tags">
+                        <span class="tag">Ara</span>
+                        <span class="tag">Ekle</span>
                         <span class="tag">Topluluk</span>
-                        <span class="tag">Yanıtlar</span>
-                        <span class="tag">Paylaşım</span>
                     </div>
                     <a href="/qa/qa.html" class="category-link">
-                        <span>Sorular</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-<!--  Bu comment out da iptal edilen kısımlar : Sigorta & Sağlık, Blog & Rehberler, Etkinlikler, Uzman Ara, Belgeler & Formlar
-                
-                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="category-icon icon-insurance">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="category-title">Sigorta & Sağlık</h3>
-                    <p class="category-description">
-                        Sağlık sigortası, öğrenci sigortası, TA11 belgesi ve tüm detaylar.
-                    </p>
-                    <div class="category-tags">
-                        <span class="tag">Krankenversicherung</span>
-                        <span class="tag">TA11</span>
-                    </div>
-                    <a href="/sigorta" class="category-link">
-                        <span>Bilgi Al</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                
-                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="category-icon icon-blog">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3 class="category-title">Blog & Rehberler</h3>
-                    <p class="category-description">
-                        Almanya'da hayat, kariyer, eğitim ve kültür hakkında derinlemesine yazılar.
-                    </p>
-                    <div class="category-tags">
-                        <span class="tag">Hayat</span>
-                        <span class="tag">Kariyer</span>
-                        <span class="tag">Eğitim</span>
-                    </div>
-                    <a href="/blog" class="category-link">
-                        <span>Blog'u Oku</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                
-                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="category-icon icon-events">
-                        <i class="fas fa-calendar-star"></i>
-                    </div>
-                    <h3 class="category-title">Etkinlikler</h3>
-                    <p class="category-description">
-                        Türk toplumunun etkinlikleri, festivaller, konserler ve buluşmalar.
-                    </p>
-                    <div class="category-tags">
-                        <span class="tag">Festival</span>
-                        <span class="tag">Konser</span>
-                        <span class="tag">Buluşma</span>
-                    </div>
-                    <a href="/etkinlikler" class="category-link">
-                        <span>Etkinlikler</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                
-                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="category-icon icon-expert">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="category-title">Uzman Ara</h3>
-                    <p class="category-description">
-                        Avukat, muhasebeci, doktor - ihtiyacın olan Türkçe konuşan uzmanları bul.
-                    </p>
-                    <div class="category-tags">
-                        <span class="tag">Avukat</span>
-                        <span class="tag">Doktor</span>
-                        <span class="tag">Danışman</span>
-                    </div>
-                    <a href="/uzman-ara" class="category-link">
-                        <span>Uzman Bul</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                
-                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="category-icon icon-documents">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="category-title">Belgeler & Formlar</h3>
-                    <p class="category-description">
-                        Garantör belgesi, muvafakatname, davet mektubu örnekleri ve daha fazlası.
-                    </p>
-                    <div class="category-tags">
-                        <span class="tag">Formlar</span>
-                        <span class="tag">Örnekler</span>
-                    </div>
-                    <a href="/araclar/belgeler" class="category-link">
-                        <span>Belgelere Git</span>
+                        <span>Hemen Başla</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
 Bu comment out da iptal edilen kısımlar : Sigorta & Sağlık, Blog & Rehberler, Etkinlikler, Uzman Ara, Belgeler & Formlar  -->
             </div>
-        </div>
-    </section>
-
     <!-- Popular Topics Section -->
     <section class="popular-topics">
         <div class="container">
@@ -483,34 +388,34 @@ Bu comment out da iptal edilen kısımlar : Sigorta & Sağlık, Blog & Rehberler
             </div>
 
             <div class="topics-grid">
-                <a href="/araclar/maas-hesaplama" class="topic-card" data-aos="fade-up" data-aos-delay="100">
+                <a href="/haberler/haberindex.html" class="topic-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Haberleri Gör</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/maas/index.html" class="topic-card" data-aos="fade-up" data-aos-delay="150">
                     <i class="fas fa-calculator"></i>
-                    <span>Net Maaş Hesaplama</span>
+                    <span>Net Maaş Hesapla</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="/araclar/vatandaslik-testi" class="topic-card" data-aos="fade-up" data-aos-delay="150">
-                    <i class="fas fa-flag"></i>
-                    <span>Vatandaşlık Testi</span>
+                <a href="/tatiltr/holiday.html" class="topic-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Türkiye Tatil Planlayıcı</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="/araclar/ta11-belgesi" class="topic-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-file-medical"></i>
-                    <span>TA11 Belgesi</span>
+                <a href="/tatilde/holiday.html" class="topic-card" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-plane-departure"></i>
+                    <span>Almanya Tatil Planlayıcı</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="/sigorta" class="topic-card" data-aos="fade-up" data-aos-delay="250">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Sağlık Sigortası</span>
+                <a href="/qa/qa.html" class="topic-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-search"></i>
+                    <span>Soru & Cevap Ara</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="/araclar/garantor" class="topic-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-handshake"></i>
-                    <span>Garantör Belgesi</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="/blog/is-bulma" class="topic-card" data-aos="fade-up" data-aos-delay="350">
-                    <i class="fas fa-briefcase"></i>
-                    <span>İş Bulma</span>
+                <a href="/qa/qa.html#ask" class="topic-card" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Soru & Cevap Ekle</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -565,30 +470,39 @@ Bu comment out da iptal edilen kısımlar : Sigorta & Sağlık, Blog & Rehberler
                         Almanya'daki Türkler için kapsamlı rehber. Her konuda, her zaman yanınızda.
                     </p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/almanya101de" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/101Almanya46905" aria-label="X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/61585880885278" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/almanya101/" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.reddit.com/r/almanya101" aria-label="Reddit">
+                            <i class="fab fa-reddit-alien"></i>
+                        </a>
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h4 class="footer-title">Kategoriler</h4>
                     <ul class="footer-links">
-                        <li><a href="/haber">Haber & Gündem</a></li>
-                        <li><a href="/blog">Blog & Rehberler</a></li>
-                        <li><a href="/araclar">Pratik Araçlar</a></li>
-                        <li><a href="/sigorta">Sigorta & Sağlık</a></li>
+                        <li><a href="/haberler/haberindex.html">Haberler</a></li>
+                        <li><a href="/maas/index.html">Araçlar</a></li>
+                        <li><a href="/qa/qa.html">Soru & Cevap</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4 class="footer-title">Hızlı Linkler</h4>
                     <ul class="footer-links">
+                        <li><a href="/haberler/haberindex.html">Haberler</a></li>
+                        <li><a href="/maas/index.html">Araçlar</a></li>
                         <li><a href="/qa/qa.html">Soru & Cevap</a></li>
-                        <li><a href="/uzman-ara">Uzman Ara</a></li>
-                        <li><a href="/etkinlikler">Etkinlikler</a></li>
-                        <li><a href="/turkish-expats">Topluluğa Katıl</a></li>
                     </ul>
                 </div>
 
