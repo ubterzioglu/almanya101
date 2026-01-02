@@ -57,6 +57,7 @@ Open:
 - Supabase için gerekli ortam değişkenleri: `SUPABASE_URL` ve `SUPABASE_SERVICE_ROLE_KEY` (yalnızca backend).
 
 ## Değişiklik Kaydı
+- 2026-01-02 15:55 (Europe/Berlin) — Footer sosyal linklerinin HTML yapısı temizlendi, olası merge kalıntıları giderildi.
 - 2026-01-02 15:43 (Europe/Berlin) — Ana sayfa menüleri ve kartları Haberler/Araçlar/Soru&Cevap odağında güncellendi; sosyal bağlantılar yenilendi.
 - 2026-01-02 15:21 (Europe/Berlin) — Haberler sayfasına Supabase erişilemediğinde gösterilecek örnek kartlar eklendi ve meta bilgisi güncellendi.
 
