@@ -1,31 +1,552 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>almanya101.de</title>
-  <link rel="stylesheet" href="/style-shared.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almanya101 - Almanya'daki Türkler için Kapsamlı Rehber</title>
+    <meta name="description" content="Almanya'da yaşayan ve yaşamayı planlayan Türkler için her konuda rehber. Güncel haberler, pratik araçlar, sigorta, etkinlikler ve daha fazlası.">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <h1>almanya101.de</h1>
-      <p class="muted">Sık sorulan sorular ve pratik rehber.</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">
+                    <span class="logo-text">almanya<span class="logo-highlight">101</span></span>
+                    <span class="logo-dot">.</span><span class="logo-de">de</span>
+                </a>
+            </div>
 
-    <section class="card">
-      <h2>QA</h2>
-      <p>Almanya ile ilgili soruları ve cevapları burada topluyoruz.</p>
-      <a class="btn" href="/qa/qa.html">QA sayfasına git</a>
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Haber</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/haber/dunya" class="dropdown-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Dünya</span>
+                        </a>
+                        <a href="/haber/ekonomi" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Ekonomi</span>
+                        </a>
+                        <a href="/haber/gundem" class="dropdown-item">
+                            <i class="fas fa-fire"></i>
+                            <span>Gündem</span>
+                        </a>
+                        <a href="/haber/siyaset" class="dropdown-item">
+                            <i class="fas fa-landmark"></i>
+                            <span>Siyaset</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span>Blog</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/blog/hayat" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Hayat & Kültür</span>
+                        </a>
+                        <a href="/blog/kariyer" class="dropdown-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Kariyer</span>
+                        </a>
+                        <a href="/blog/egitim" class="dropdown-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Eğitim</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/uzman-ara" class="nav-link">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Uzman Ara</span>
+                    </a>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Araçlar</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-large">
+                        <a href="/araclar/maas-hesaplama" class="dropdown-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>Net Maaş Hesaplama</span>
+                        </a>
+                        <a href="/araclar/vatandaslik-testi" class="dropdown-item">
+                            <i class="fas fa-flag"></i>
+                            <span>Vatandaşlık & Uyum Testi</span>
+                        </a>
+                        <a href="/araclar/tatil-gunleri" class="dropdown-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Tatil Günleri</span>
+                        </a>
+                        <a href="/araclar/belgeler" class="dropdown-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Belgeler</span>
+                        </a>
+                        <a href="/araclar/ta11-belgesi" class="dropdown-item">
+                            <i class="fas fa-file-medical"></i>
+                            <span>TA11 Belgesi</span>
+                        </a>
+                        <a href="/araclar/at11-belgesi" class="dropdown-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>AT11 Belgesi</span>
+                        </a>
+                        <a href="/araclar/garantor" class="dropdown-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Garantör Belgesi</span>
+                        </a>
+                        <a href="/araclar/muvafakatname" class="dropdown-item">
+                            <i class="fas fa-child"></i>
+                            <span>Muvafakatname Örneği</span>
+                        </a>
+                        <a href="/araclar/davet-mektubu" class="dropdown-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Davet Mektubu</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/sigorta" class="nav-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Sigorta</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/etkinlikler" class="nav-link">
+                        <i class="fas fa-calendar-star"></i>
+                        <span>Etkinlikler</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/qa/qa.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Soru & Cevap</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Tema Değiştir">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/turkish-expats" class="btn-primary">
+                    <i class="fas fa-users"></i>
+                    <span>Topluluğa Katıl</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <canvas id="particlesCanvas"></canvas>
+
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <i class="fas fa-sparkles"></i>
+                <span>Almanya'daki Türkler için #1 Rehber</span>
+            </div>
+
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                Almanya'da Hayatını
+                <span class="gradient-text">Kolaylaştır</span>
+            </h1>
+
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Almanya'dan Türkiye'ye gelen expatlar, aileleri, çocukları ve eşleri için kapsamlı rehber.
+                Gelmeyi düşünenler için de her konuda bilgi!
+            </p>
+
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <a href="#categories" class="btn-hero btn-hero-primary">
+                    <span>Keşfetmeye Başla</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/qa/qa.html" class="btn-hero btn-hero-secondary">
+                    <i class="fas fa-comments"></i>
+                    <span>Soru Sor</span>
+                </a>
+            </div>
+
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-label">Soru & Cevap</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">Pratik Araç</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">Topluluk Üyesi</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" data-aos="fade" data-aos-delay="500">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Aşağı Kaydır</span>
+        </div>
     </section>
 
-    <footer class="footer muted">
-      <small>© almanya101.de</small>
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    Sana Nasıl
+                    <span class="gradient-text">Yardımcı Olabiliriz?</span>
+                </h2>
+                <p class="section-subtitle">
+                    İhtiyacın olan her şey burada. Kategorileri keşfet, hayatını kolaylaştır.
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <!-- Haber & Gündem -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-icon icon-news">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="category-title">Haber & Gündem</h3>
+                    <p class="category-description">
+                        Almanya ve dünyadan güncel haberler, ekonomi, siyaset ve daha fazlası.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Dünya</span>
+                        <span class="tag">Ekonomi</span>
+                        <span class="tag">Siyaset</span>
+                    </div>
+                    <a href="/haber" class="category-link">
+                        <span>Haberleri Gör</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Pratik Araçlar -->
+                <div class="category-card category-card-featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Popüler</span>
+                    </div>
+                    <div class="category-icon icon-tools">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="category-title">Pratik Araçlar</h3>
+                    <p class="category-description">
+                        Maaş hesaplama, vatandaşlık testi, belgeler ve daha fazla kullanışlı araç.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Hesaplama</span>
+                        <span class="tag">Testler</span>
+                        <span class="tag">Belgeler</span>
+                    </div>
+                    <a href="/araclar" class="category-link">
+                        <span>Araçları Kullan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Soru & Cevap -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-icon icon-qa">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="category-title">Soru & Cevap</h3>
+                    <p class="category-description">
+                        Aklındaki soruları sor, topluluktan cevap al veya geçmiş soruları incele.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Topluluk</span>
+                        <span class="tag">Yanıtlar</span>
+                        <span class="tag">Paylaşım</span>
+                    </div>
+                    <a href="/qa/qa.html" class="category-link">
+                        <span>Sorular</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Sigorta & Sağlık -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-icon icon-insurance">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="category-title">Sigorta & Sağlık</h3>
+                    <p class="category-description">
+                        Sağlık sigortası, öğrenci sigortası, TA11 belgesi ve tüm detaylar.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Krankenversicherung</span>
+                        <span class="tag">TA11</span>
+                    </div>
+                    <a href="/sigorta" class="category-link">
+                        <span>Bilgi Al</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Blog & Rehberler -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-icon icon-blog">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="category-title">Blog & Rehberler</h3>
+                    <p class="category-description">
+                        Almanya'da hayat, kariyer, eğitim ve kültür hakkında derinlemesine yazılar.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Hayat</span>
+                        <span class="tag">Kariyer</span>
+                        <span class="tag">Eğitim</span>
+                    </div>
+                    <a href="/blog" class="category-link">
+                        <span>Blog'u Oku</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Etkinlikler -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-icon icon-events">
+                        <i class="fas fa-calendar-star"></i>
+                    </div>
+                    <h3 class="category-title">Etkinlikler</h3>
+                    <p class="category-description">
+                        Türk toplumunun etkinlikleri, festivaller, konserler ve buluşmalar.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Festival</span>
+                        <span class="tag">Konser</span>
+                        <span class="tag">Buluşma</span>
+                    </div>
+                    <a href="/etkinlikler" class="category-link">
+                        <span>Etkinlikler</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Uzman Ara -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-icon icon-expert">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="category-title">Uzman Ara</h3>
+                    <p class="category-description">
+                        Avukat, muhasebeci, doktor - ihtiyacın olan Türkçe konuşan uzmanları bul.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Avukat</span>
+                        <span class="tag">Doktor</span>
+                        <span class="tag">Danışman</span>
+                    </div>
+                    <a href="/uzman-ara" class="category-link">
+                        <span>Uzman Bul</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Belgeler & Formlar -->
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-icon icon-documents">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="category-title">Belgeler & Formlar</h3>
+                    <p class="category-description">
+                        Garantör belgesi, muvafakatname, davet mektubu örnekleri ve daha fazlası.
+                    </p>
+                    <div class="category-tags">
+                        <span class="tag">Formlar</span>
+                        <span class="tag">Örnekler</span>
+                    </div>
+                    <a href="/araclar/belgeler" class="category-link">
+                        <span>Belgelere Git</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Topics Section -->
+    <section class="popular-topics">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="gradient-text">Popüler</span> Konular
+                </h2>
+                <p class="section-subtitle">
+                    En çok aranan ve okunan konular
+                </p>
+            </div>
+
+            <div class="topics-grid">
+                <a href="/araclar/maas-hesaplama" class="topic-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-calculator"></i>
+                    <span>Net Maaş Hesaplama</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/araclar/vatandaslik-testi" class="topic-card" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-flag"></i>
+                    <span>Vatandaşlık Testi</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/araclar/ta11-belgesi" class="topic-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-file-medical"></i>
+                    <span>TA11 Belgesi</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/sigorta" class="topic-card" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Sağlık Sigortası</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/araclar/garantor" class="topic-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-handshake"></i>
+                    <span>Garantör Belgesi</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/blog/is-bulma" class="topic-card" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-briefcase"></i>
+                    <span>İş Bulma</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2 class="cta-title">Topluluğumuza Katıl</h2>
+                    <p class="cta-text">
+                        Binlerce Türk expat ile tanış, deneyimlerini paylaş, sorular sor ve Almanya'daki hayatını kolaylaştır.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="/turkish-expats" class="btn-cta btn-cta-primary">
+                            <i class="fas fa-users"></i>
+                            <span>Hemen Katıl</span>
+                        </a>
+                        <a href="/qa/qa.html" class="btn-cta btn-cta-secondary">
+                            <i class="fas fa-comments"></i>
+                            <span>Soru Sor</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-image">
+                    <div class="floating-icon" style="--delay: 0s">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="floating-icon" style="--delay: 0.5s">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="floating-icon" style="--delay: 1s">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">almanya<span class="logo-highlight">101</span></span>
+                        <span class="logo-dot">.</span><span class="logo-de">de</span>
+                    </div>
+                    <p class="footer-description">
+                        Almanya'daki Türkler için kapsamlı rehber. Her konuda, her zaman yanınızda.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="/haber">Haber & Gündem</a></li>
+                        <li><a href="/blog">Blog & Rehberler</a></li>
+                        <li><a href="/araclar">Pratik Araçlar</a></li>
+                        <li><a href="/sigorta">Sigorta & Sağlık</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="/qa/qa.html">Soru & Cevap</a></li>
+                        <li><a href="/uzman-ara">Uzman Ara</a></li>
+                        <li><a href="/etkinlikler">Etkinlikler</a></li>
+                        <li><a href="/turkish-expats">Topluluğa Katıl</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">İletişim</h4>
+                    <ul class="footer-links">
+                        <li><a href="/hakkimizda">Hakkımızda</a></li>
+                        <li><a href="/iletisim">İletişim</a></li>
+                        <li><a href="/gizlilik">Gizlilik Politikası</a></li>
+                        <li><a href="/kullanim-kosullari">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Almanya101.de - Tüm hakları saklıdır.</p>
+                <p>Made with <i class="fas fa-heart"></i> for Turkish Community in Germany</p>
+            </div>
+        </div>
     </footer>
-  </main>
 
-<script data-goatcounter="https://almanya101de.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/scripts/particles.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script data-goatcounter="https://almanya101de.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
