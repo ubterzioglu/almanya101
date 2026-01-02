@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation scroll effect
     initNavbar();
 
-    // Theme toggle
-    initThemeToggle();
-
     // Counter animation
     initCounters();
 
@@ -27,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile menu
     initMobileMenu();
+
+    // Dropdown hover enhancement
+    initDropdownHover();
 });
 
 // ============================================
@@ -55,37 +55,6 @@ function initNavbar() {
 
         lastScroll = currentScroll;
     });
-}
-
-// ============================================
-// THEME TOGGLE
-// ============================================
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-theme');
-        updateThemeIcon(themeToggle, true);
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-theme');
-        const isLight = body.classList.contains('light-theme');
-
-        // Save preference
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-
-        // Update icon
-        updateThemeIcon(themeToggle, isLight);
-    });
-}
-
-function updateThemeIcon(button, isLight) {
-    const icon = button.querySelector('i');
-    icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
 }
 
 // ============================================
@@ -160,9 +129,13 @@ function initMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
 
-    if (!mobileMenuToggle) return;
+    if (!mobileMenuToggle || !navMenu) {
+        console.log('Mobile menu elements not found');
+        return;
+    }
 
-    mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         navMenu.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
         document.body.classList.toggle('menu-open');
@@ -190,36 +163,38 @@ function initMobileMenu() {
 // ============================================
 // DROPDOWN HOVER ENHANCEMENT
 // ============================================
-document.querySelectorAll('.nav-item.dropdown').forEach(dropdown => {
-    let timeout;
+function initDropdownHover() {
+    document.querySelectorAll('.nav-item.dropdown').forEach(dropdown => {
+        let timeout;
 
-    dropdown.addEventListener('mouseenter', function() {
-        clearTimeout(timeout);
-        const menu = this.querySelector('.dropdown-menu');
-        if (menu) {
-            menu.style.display = 'block';
-            setTimeout(() => {
-                menu.style.opacity = '1';
-                menu.style.visibility = 'visible';
-                menu.style.transform = 'translateY(0)';
-            }, 10);
-        }
-    });
-
-    dropdown.addEventListener('mouseleave', function() {
-        const menu = this.querySelector('.dropdown-menu');
-        if (menu) {
-            timeout = setTimeout(() => {
-                menu.style.opacity = '0';
-                menu.style.visibility = 'hidden';
-                menu.style.transform = 'translateY(-10px)';
+        dropdown.addEventListener('mouseenter', function() {
+            clearTimeout(timeout);
+            const menu = this.querySelector('.dropdown-menu');
+            if (menu) {
+                menu.style.display = 'block';
                 setTimeout(() => {
-                    menu.style.display = 'none';
-                }, 300);
-            }, 100);
-        }
+                    menu.style.opacity = '1';
+                    menu.style.visibility = 'visible';
+                    menu.style.transform = 'translateY(0)';
+                }, 10);
+            }
+        });
+
+        dropdown.addEventListener('mouseleave', function() {
+            const menu = this.querySelector('.dropdown-menu');
+            if (menu) {
+                timeout = setTimeout(() => {
+                    menu.style.opacity = '0';
+                    menu.style.visibility = 'hidden';
+                    menu.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }, 100);
+            }
+        });
     });
-});
+}
 
 // ============================================
 // PARALLAX EFFECT ON HERO

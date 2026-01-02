@@ -162,6 +162,9 @@
   function renderQA(container, items) {
     container.innerHTML = "";
 
+    // Build FAQPage schema for SEO & AI
+    const faqEntities = [];
+
     items.forEach((q) => {
       const slug = (q.slug || "").trim();
       const topic = (q.topic || "").trim();
@@ -171,14 +174,46 @@
       div.className = "qa-item";
       if (slug) div.id = slug;
 
+      // Add semantic HTML for AI-friendly structure
       div.innerHTML = `
-        <h3>${escapeHtml(q.question)}</h3>
-        <p>${escapeHtml(q.answer)}</p>
-        <small>${escapeHtml(topic)}${subtopic ? " / " + escapeHtml(subtopic) : ""}</small>
+        <article itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">${escapeHtml(q.question)}</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">${escapeHtml(q.answer)}</p>
+          </div>
+          <small class="qa-meta">${escapeHtml(topic)}${subtopic ? " / " + escapeHtml(subtopic) : ""}</small>
+        </article>
       `;
 
       container.appendChild(div);
+
+      // Add to FAQPage schema
+      faqEntities.push({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      });
     });
+
+    // Update FAQPage schema in document head
+    updateFAQSchema(faqEntities);
+  }
+
+  // Update the FAQPage structured data dynamically
+  function updateFAQSchema(faqEntities) {
+    const schemaEl = $("faq-schema");
+    if (!schemaEl) return;
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqEntities
+    };
+
+    schemaEl.textContent = JSON.stringify(schema, null, 2);
   }
 
   // ---------- INIT ----------
