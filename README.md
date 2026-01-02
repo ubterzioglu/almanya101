@@ -14,7 +14,7 @@
 - api/reports-get.js (maas raporlarını oku)
 - lib/supabase.js (yalnızca sunucu tarafı kullanım için Supabase istemcisi)
 
-## Deploy (Vercel)
+## Deploy (Vercel) Neler oluyor?
 1) Push this repo to GitHub
 2) Import into Vercel (New Project)
 3) Add Environment Variables (Project Settings -> Environment Variables)
