@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brüt Maaştan Net Maaşa | Maaş Hesaplayıcı | Almanya 101</title>
+  <link rel="stylesheet" href="/style-shared.css" />
+  <link rel="stylesheet" href="/maas/css/maas.css" />
+  <link rel="icon" type="image/png" href="/img/logoubt.png" />
+  <meta name="description" content="2024-2025 Almanya brüt maaştan net maaşa hesaplayıcı: vergi sınıfı, çocuk durumu, kilise vergisi ve sağlık sigortası ek oranı ile anında hesapla." />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__brand">
+      <img src="/img/logoubt.png" alt="UBT" class="masthead__logo" />
+      <div>
+        <div class="masthead__title">Maaş Hesaplayıcı</div>
+        <div class="masthead__subtitle">Brütten nete, 2024-2025</div>
+      </div>
+    </div>
+    <a class="masthead__link" href="/">Almanya 101</a>
+  </header>
+
+  <main class="layout">
+    <section class="panel form-panel">
+      <h1 class="panel__title">Hesaplama Formu</h1>
+      <p class="panel__lead">Brüt maaşını ve vergi parametrelerini gir; sonuçlar sağda canlı güncellenir.</p>
+      <form id="salaryForm" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span class="field__label">Aylık brüt (€)</span>
+            <input id="gross" name="gross" type="number" min="0" step="0.01" required placeholder="Örn: 4200" />
+          </label>
+          <label class="field">
+            <span class="field__label">Yıl</span>
+            <select id="year" name="year" required>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Vergi sınıfı (1-6)</span>
+            <input id="taxClass" name="taxClass" type="number" min="1" max="6" step="1" required placeholder="Örn: 1" />
+          </label>
+          <label class="field">
+            <span class="field__label">Çocuk var mı?</span>
+            <select id="hasChild" name="hasChild">
+              <option value="false">Hayır</option>
+              <option value="true">Evet</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Kilise vergisi</span>
+            <select id="churchTax" name="churchTax">
+              <option value="false">Yok</option>
+              <option value="true">Var</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Sağlık sig. ek oranı (%)</span>
+            <input id="healthExtra" name="healthExtra" type="number" min="0" step="0.1" placeholder="Örn: 1.6" />
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn btn--primary" type="submit">Hesapla</button>
+          <button class="btn btn--ghost" type="reset">Temizle</button>
+          <span id="formMsg" class="form-msg" role="status"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel result-panel">
+      <div class="result__header">
+        <div>
+          <h2 class="panel__title">Net Maaş</h2>
+          <p class="panel__lead">Vergi ve sigorta kırılımını canlı gör.</p>
+        </div>
+        <div class="result__net" id="netValue">—</div>
+      </div>
+
+      <div class="stat-block">
+        <div class="stat">
+          <div class="stat__label">Aylık brüt</div>
+          <div class="stat__value" id="grossValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat__label">Toplam kesinti</div>
+          <div class="stat__value" id="deductionsValue">—</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card__title">Vergiler</div>
+          <dl class="list" id="taxList">
+            <div class="list__row"><dt>Gelir vergisi</dt><dd>—</dd></div>
+            <div class="list__row"><dt>Dayanışma</dt><dd>—</dd></div>
+            <div class="list__row"><dt>Kilise vergisi</dt><dd>—</dd></div>
+            <div class="list__row list__row--bold"><dt>Toplam</dt><dd>—</dd></div>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card__title">Sosyal Güvenlik</div>
+          <dl class="list" id="socialList">
+            <div class="list__row"><dt>Emeklilik</dt><dd>—</dd></div>
+            <div class="list__row"><dt>İşsizlik</dt><dd>—</dd></div>
+            <div class="list__row"><dt>Sağlık</dt><dd>—</dd></div>
+            <div class="list__row"><dt>Bakım</dt><dd>—</dd></div>
+            <div class="list__row list__row--bold"><dt>Toplam</dt><dd>—</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <div class="report-link" id="reportLink" hidden>
+        <a id="reportAnchor" class="btn btn--primary" href="#">Raporu aç</a>
+        <p class="panel__lead">Hesaplamayı paylaşmak veya yazdırmak için rapor sayfasını kullan.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/maas/js/maas.js"></script>
+</body>
+</html>

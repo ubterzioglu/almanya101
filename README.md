@@ -6,6 +6,13 @@
 - qa/qa.html
 - qa/qa.js
 - api/qa-ask.js  (Vercel Serverless Function)
+- maas/ (Brüt→net maaş hesaplayıcı; düz HTML/CSS/JS)
+  - maas/index.html, maas/report.html
+  - maas/js/maas.js, maas/js/report.js
+  - maas/css/maas.css, maas/css/report.css
+- api/net-salary.js (maas için hesaplama + kayıt)
+- api/reports-get.js (maas raporlarını oku)
+- lib/supabase.js (yalnızca sunucu tarafı kullanım için Supabase istemcisi)
 
 ## Deploy (Vercel)
 1) Push this repo to GitHub
@@ -36,9 +43,7 @@ Open:
 - http://localhost:3000/
 - http://localhost:3000/qa/qa.html
 
-## Notes
-- This version does NOT write to DB; it only sends emails to qa@almanya101.de.
-- Later, you can add a DB table (QA1) and an admin panel to publish answers.
+
 
 ## Türkçe Özet
 - Proje yapısı: statik ana sayfa (`index.html`), ortak stil dosyası (`style-shared.css`), Soru-Cevap sayfası (`qa/qa.html` + `qa/qa.js`) ve Vercel sunucusuz fonksiyonu (`api/qa-ask.js`).
