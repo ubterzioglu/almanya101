@@ -13,13 +13,7 @@
 - api/net-salary.js (maas için hesaplama + kayıt)
 - api/reports-get.js (maas raporlarını oku)
 - lib/supabase.js (yalnızca sunucu tarafı kullanım için Supabase istemcisi)
-- haberler/ (Supabase’ten okunan kart tabanlı haber listesi)
-  - haberler/haberindex.html
-  - haberler/js/haber.js
-  - haberler/css/haber.css
-- api/news-list.js (haberler için read-only listeleme)
 
-## Deploy (Vercel)
 1) Push this repo to GitHub
 2) Import into Vercel (New Project)
 3) Add Environment Variables (Project Settings -> Environment Variables)
@@ -47,14 +41,6 @@ npx vercel dev
 Open:
 - http://localhost:3000/
 - http://localhost:3000/qa/qa.html
-
-## Notes
-- Site tamamen düz HTML/CSS/JS ile çalışır; Next.js veya TypeScript yoktur.
-- QA formu, Zoho SMTP ile e-posta gönderir ve veritabanına yazmaz.
-- Maaş hesaplayıcı, Supabase Postgres'e (table: `salary_submissions`) yazan sunucusuz API'lerle çalışır.
-- Haberler sayfası Supabase'deki `news_articles` tablosundan okur (sahalar: `id`, `title`, `summary`, `body`, `tag`, `created_at`),
-  görsel yolu otomatik olarak `/img/haberler/{id}.jpg` şeklinde hesaplanır.
-- Supabase için gerekli ortam değişkenleri: `SUPABASE_URL` ve `SUPABASE_SERVICE_ROLE_KEY` (yalnızca backend).
 
 ## Türkçe Özet
 - Proje yapısı: statik ana sayfa (`index.html`), ortak stil dosyası (`style-shared.css`), Soru-Cevap sayfası (`qa/qa.html` + `qa/qa.js`) ve Vercel sunucusuz fonksiyonu (`api/qa-ask.js`).
