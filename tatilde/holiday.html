@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gute Erholung! | DE 2026 Urlaubsplaner | UBT</title>
+
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/png" href="https://ubterzioglu.de/img/logoubt.png" />
+
+  <meta name="description" content="Deutschland 2026: Wähle ein Bundesland und einen Zeitraum – das Tool berechnet Gesamtfrei, benötigte Urlaubstage, Wochenenden und Feiertage (werktags)." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Canonical: deploy path'ine göre güncelle -->
+  <link rel="canonical" href="https://almanya101.de/tatilde/holiday.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://ubterzioglu.de/#person",
+    "name": "Umut Barış Terzioğlu",
+    "url": "https://ubterzioglu.de",
+    "image": "https://ubterzioglu.de/img/logoubt.png",
+    "jobTitle": "Senior Software Quality Assurance Engineer",
+    "sameAs": [
+      "https://www.linkedin.com/in/umutbaristerzioglu"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://almanya101.de/tatilde/holiday.html#webpage",
+    "url": "https://almanya101.de/tatilde/holiday.html",
+    "name": "Gute Erholung! | DE 2026 Urlaubsplaner | UBT",
+    "description": "Deutschland 2026: Bundesland wählen, Zeitraum wählen, Urlaubstage und Feiertage automatisch berechnen.",
+    "inLanguage": "de",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://ubterzioglu.de/#website",
+      "url": "https://ubterzioglu.de/",
+      "name": "Umut Barış Terzioğlu"
+    },
+    "about": {
+      "@type": "Person",
+      "@id": "https://ubterzioglu.de/#person"
+    }
+  }
+  </script>
+</head>
+
+<script>
+  window.goatcounter = window.goatcounter || {};
+  window.goatcounter.path = "/tatilde/holiday.html"; /* deploy path'ine göre güncelle */
+</script>
+<script data-goatcounter="https://ubterzioglude.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<body>
+  <nav class="topbar">
+    <a class="topbar__logo" href="/">almanya<strong>101</strong><span class="dot">.</span><span class="de">de</span></a>
+    <a class="topbar__back" href="/">
+      <span aria-hidden="true">←</span> Ana sayfa
+    </a>
+  </nav>
+
+  <main class="wrap">
+  <section class="card card--blue">
+
+  <header class="card__head">
+    <div class="headRow">
+      <div class="headLeft">
+        <h1>Deutschland 2026 Urlaubsplaner</h1>
+        <p class="muted">Bundesland wählen, Zeitraum auswählen – das Tool berechnet Urlaubstage, Feiertage und Gesamtfrei.</p>
+      </div>
+
+      <div class="headRight">
+        <a href="https://ubterzioglu.de/" target="_blank" rel="noopener">
+          <img class="ubtLogo" src="https://ubterzioglu.de/img/logoubt.png" alt="UBT logo" />
+        </a>
+        <a href="https://ubterzioglu.de/" target="_blank" rel="noopener">
+          <img class="ubtPic" src="https://ubterzioglu.de/img/picprofile.png" alt="UBT profile" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="stack">
+
+  <!-- INFO -->
+  <div class="panel panel--yellow">
+    <div class="panelTop">
+      <h2 class="panel__title">Info / Berechnung</h2>
+      <div class="stackBtns">
+        <button id="toggleInfo" class="btn btn--ghost">Info öffnen</button>
+        <button id="toggleHolidayList" class="btn btn--ghost">Feiertage 2026 öffnen</button>
+        <button id="toggleTips" class="btn btn--ghost">Tipps öffnen</button>
+      </div>
+    </div>
+
+    <div id="infoBody" class="infobox hidden">
+      <ul class="bullets">
+        <li>Wochenenden (Sa/So) werden automatisch berücksichtigt.</li>
+        <li>Feiertage sind bundeslandabhängig; wähle dein Bundesland.</li>
+        <li>Diese Version enthält die gesetzlichen Feiertage für <strong>2026</strong> (Deutschland).</li>
+      </ul>
+    </div>
+
+    <div id="holidayList" class="holidaylist hidden"></div>
+
+    <!-- 👇 SENİN YAZACAĞIN TIPP KARTI -->
+    <div id="tipsCard" class="infobox hidden">
+      <!-- BURAYI SERBESTÇE YAZ -->
+      <strong>🌟 UBT Tipps </strong><br><br>
+• Feiertag am Donnerstag + Freitag Urlaub = 4 Tage frei.<br><br>
+• Fällt ein Feiertag aufs Wochenende, gibt es leider keinen zusätzlichen freien Werktag – ein Urlaubstag kann sich dann “teurer” anfühlen.<br><br>
+• Für lange Blöcke: rund um Ostern / Himmelfahrt / Pfingsten planen.<br><br>
+• Montag oder Freitag als Urlaubstag bringt oft den größten Effekt (verlängertes Wochenende).<br><br>
+• Mehrere Feiertage in einem Monat als Paket denken: mit wenigen Urlaubstagen sind 7–9 Tage am Stück möglich.<br><br>
+• Bundesland-Check: Manche Feiertage gelten nur regional – Nachbarbundesländer können sich lohnen.<br><br>
+• Tage direkt vor/nach einem Feiertag sind oft weniger gefragt – die Chancen auf Freigabe sind höher.<br><br>
+• Schulferien im Blick behalten: In Ferienzeiten sind Reisen meist teurer; außerhalb oft günstiger.<br><br>
+• Urlaub früh grob planen: So bekommst du die “besten” Brückentage meist einfacher genehmigt.<br><br>
+• Ein Urlaubstag, der zwei freie Blöcke verbindet, ist Gold wert (maximale Ausbeute pro Tag).<br><br>
+    </div>
+  </div>
+
+  <!-- DATE RANGE -->
+  <div class="panel panel--blue">
+    <h2 class="panel__title">Zeitraum</h2>
+
+    <div class="row2">
+      <label class="field">
+        <span class="field__label">Bundesland</span>
+        <select id="stateSelect" class="select">
+          <option value="ALL">Alle (nur bundesweite Feiertage)</option>
+          <option value="BW">Baden-Württemberg</option>
+          <option value="BY">Bayern</option>
+          <option value="BE">Berlin</option>
+          <option value="BB">Brandenburg</option>
+          <option value="HB">Bremen</option>
+          <option value="HH">Hamburg</option>
+          <option value="HE">Hessen</option>
+          <option value="MV">Mecklenburg-Vorpommern</option>
+          <option value="NI">Niedersachsen</option>
+          <option value="NW" selected>Nordrhein-Westfalen</option>
+          <option value="RP">Rheinland-Pfalz</option>
+          <option value="SL">Saarland</option>
+          <option value="SN">Sachsen</option>
+          <option value="ST">Sachsen-Anhalt</option>
+          <option value="SH">Schleswig-Holstein</option>
+          <option value="TH">Thüringen</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Start</span>
+        <input id="startDate" type="date" />
+      </label>
+
+      <label class="field">
+        <span class="field__label">Ende</span>
+        <input id="endDate" type="date" />
+      </label>
+    </div>
+
+    <div id="pickedSummary" class="picked muted hidden"></div>
+
+    <div class="actions">
+      <button id="calcBtn" class="btn btn--primary">Berechnen</button>
+      <button id="resetBtn" class="btn btn--danger">Zurücksetzen</button>
+    </div>
+
+    <!-- system hint -->
+    <div id="tipsBox" class="tips hidden"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="panel panel--purple">
+    <div class="resultsHead">
+      <div>
+        <h2 class="panel__title">Ergebnis</h2>
+        <div id="tripBadge" class="tripBadge hidden"></div>
+      </div>
+
+      <div class="effBox">
+        <div class="effLabel">Urlaubs-Effizienz</div>
+        <div class="effBar">
+          <div id="effFill" class="effFill"></div>
+        </div>
+        <div id="effText" class="effText">—</div>
+      </div>
+    </div>
+
+    <div class="kpis kpis--stack">
+      <div class="kpi kpi--green">
+        <div class="kpi__label">Gesamt frei</div>
+        <div id="kpiTotal" class="kpi__value">—</div>
+        <div class="kpi__sub muted">Alle Tage im ausgewählten Zeitraum</div>
+      </div>
+
+      <div class="kpi kpi--orange">
+        <div class="kpi__label">Benötigte Urlaubstage</div>
+        <div id="kpiLeaveHuman" class="kpi__value">—</div>
+        <div class="kpi__sub muted">Werktage ohne Feiertage</div>
+      </div>
+
+      <div class="kpi kpi--purple">
+        <div class="kpi__label">Feiertage (werktags)</div>
+        <div id="kpiHolidaysHuman" class="kpi__value">—</div>
+        <div class="kpi__sub muted">Nur wenn auf Mo–Fr</div>
+      </div>
+
+      <div class="kpi kpi--yellow">
+        <div class="kpi__label">Wochenende</div>
+        <div id="kpiWeekends" class="kpi__value">—</div>
+        <div class="kpi__sub muted">Samstag + Sonntag</div>
+      </div>
+    </div>
+
+    <div class="miniSection">
+      <div class="miniTitle">Wochen-Rhythmus</div>
+      <div id="rhythmRow" class="rhythmRow">—</div>
+    </div>
+
+    <div class="miniSection">
+      <div class="miniTitle">Woche für Woche</div>
+      <div id="weeklyPlan" class="weeklyPlan muted">
+        Zeitraum wählen und berechnen – dann erscheint hier die Wochenübersicht.
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Made with ☀️ by <strong>UBT</strong>
+  </footer>
+
+  </div>
+  </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
