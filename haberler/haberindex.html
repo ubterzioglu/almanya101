@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Haberler | Almanya101</title>
+  <link rel="icon" type="image/png" href="/img/logoubt.png" />
+  <link rel="stylesheet" href="/style-shared.css" />
+  <link rel="stylesheet" href="/haberler/css/haber.css" />
+  <meta name="description" content="Almanya101 güncel haberler: Dünya, Avrupa, Almanya ve Türkiye kategorilerinde kısa bilgi ve uzun metin özetleri." />
+</head>
+<body>
+  <header class="news-hero">
+    <div class="wrap">
+      <p class="eyebrow">Haberler</p>
+      <h1>Güncel haber kartları</h1>
+      <p class="lead">Dünya, Avrupa, Almanya ve Türkiye başlıkları altında öne çıkan haberleri tek sayfada filtreleyin, arayın, detayları okuyun.</p>
+    </div>
+  </header>
+
+  <main class="wrap news-main">
+    <section class="filters">
+      <label class="search">
+        <span class="search__label">Haber ara</span>
+        <input id="searchInput" type="search" placeholder="Başlık veya içerikte ara" autocomplete="off" />
+      </label>
+
+      <div class="chips" role="group" aria-label="Kategoriler">
+        <button class="chip chip--active" data-tag="all">Tümü</button>
+        <button class="chip" data-tag="dunya">Dünya</button>
+        <button class="chip" data-tag="avrupa">Avrupa</button>
+        <button class="chip" data-tag="almanya">Almanya</button>
+        <button class="chip" data-tag="turkiye">Türkiye</button>
+      </div>
+    </section>
+
+    <section>
+      <div id="resultsMeta" class="results-meta">Yükleniyor…</div>
+      <div id="newsGrid" class="news-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty hidden">Sonuç bulunamadı. Farklı bir anahtar kelime veya kategori deneyin.</div>
+      <div id="errorState" class="error hidden">Haberler yüklenemedi. Lütfen sayfayı yenileyin.</div>
+    </section>
+  </main>
+
+  <script src="/haberler/js/haber.js"></script>
+</body>
+</html>
