@@ -4,9 +4,6 @@
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkcHRlZm5waXVkcXVpcGRzZXpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcwNTg5MDYsImV4cCI6MjA4MjYzNDkwNn0.SjeCmVUhEWpPxkGojaGh6qSOwr8EbZx1Tq_ntpvaLnc";
 
-  const MIN_LEN = 10;
-  const MAX_LEN = 1500;
-
   // ---------- HELPERS ----------
   function $(id) {
     return document.getElementById(id);
@@ -21,107 +18,11 @@
       .replaceAll("'", "&#039;");
   }
 
-  function setMsg(msgEl, kind, text) {
-    if (!msgEl) return;
-    msgEl.className = "msg " + (kind === "ok" ? "ok" : "err");
-    msgEl.textContent = text;
-    msgEl.style.display = "block";
-  }
+  // ---------- GLOBAL DATA ----------
+  let allQuestions = [];
 
-  function clearMsg(msgEl) {
-    if (!msgEl) return;
-    msgEl.style.display = "none";
-    msgEl.textContent = "";
-  }
-
-  // ---------- FORM (mail to /api/qa-ask) ----------
-  function initForm() {
-    const form = $("qaForm");
-    if (!form) return; // sayfada form yoksa çalıştırma
-
-    const questionEl = $("question");
-    const countEl = $("count");
-    const submitBtn = $("submitBtn");
-    const msgEl = $("msg");
-    const honeypotEl = $("website");
-    const emailEl = $("email");
-    const nameEl = $("name");
-
-    if (!questionEl || !countEl || !submitBtn || !msgEl || !honeypotEl) {
-      // form markup eksikse sessizce çık
-      return;
-    }
-
-    function updateCount() {
-      const n = (questionEl.value || "").length;
-      countEl.textContent = String(n);
-    }
-
-    questionEl.addEventListener("input", updateCount);
-    updateCount();
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      clearMsg(msgEl);
-
-      const question = (questionEl.value || "").trim();
-      const email = (emailEl?.value || "").trim();
-      const name = (nameEl?.value || "").trim();
-      const website = (honeypotEl.value || "").trim();
-
-      if (website) {
-        setMsg(msgEl, "err", "Gönderim başarısız. Lütfen tekrar deneyin.");
-        return;
-      }
-
-      if (question.length < MIN_LEN) {
-        setMsg(msgEl, "err", `Soru en az ${MIN_LEN} karakter olmalı.`);
-        return;
-      }
-      if (question.length > MAX_LEN) {
-        setMsg(msgEl, "err", `Soru en fazla ${MAX_LEN} karakter olmalı.`);
-        return;
-      }
-
-      submitBtn.disabled = true;
-      const oldText = submitBtn.textContent;
-      submitBtn.textContent = "Gönderiliyor...";
-
-      try {
-        const res = await fetch("/api/qa-ask", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question, email, name })
-        });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (!res.ok) {
-          const err = data?.error || "Bir hata oluştu. Lütfen tekrar deneyin.";
-          setMsg(msgEl, "err", err);
-          return;
-        }
-
-        setMsg(msgEl, "ok", "Gönderildi. Teşekkürler! Sorun mail olarak ulaştı.");
-        form.reset();
-        updateCount();
-      } catch {
-        setMsg(msgEl, "err", "Bağlantı hatası. Lütfen tekrar deneyin.");
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = oldText || "Gönder";
-      }
-    });
-  }
-
-  // ---------- QA LIST (read from Supabase) ----------
+  // ---------- LOAD QA DATA ----------
   async function loadQA() {
-    const container = $("qa-list");
-    if (!container) return; // list container yoksa çalıştırma
-
-    // küçük bir loading durumu
-    container.innerHTML = `<div class="qa-item"><p>Yükleniyor...</p></div>`;
-
     try {
       const url =
         `${SUPABASE_URL}/rest/v1/qa1` +
@@ -137,55 +38,201 @@
       });
 
       if (!res.ok) {
-        const txt = await res.text().catch(() => "");
-        container.innerHTML = "";
-        container.insertAdjacentHTML(
-          "beforeend",
-          `<div class="qa-item"><p>Liste yüklenemedi. (${res.status})</p><small>${escapeHtml(txt)}</small></div>`
-        );
+        console.error('Failed to load QA data:', res.status);
         return;
       }
 
       const data = await res.json();
 
-      if (!Array.isArray(data) || data.length === 0) {
-        container.innerHTML = `<div class="qa-item"><p>Henüz yayınlanmış soru yok.</p></div>`;
-        return;
+      if (Array.isArray(data) && data.length > 0) {
+        allQuestions = data;
+        updateStatistics();
+        initSearch();
       }
-
-      renderQA(container, data);
-    } catch {
-      container.innerHTML = `<div class="qa-item"><p>Bağlantı hatası. Lütfen sayfayı yenileyin.</p></div>`;
+    } catch (err) {
+      console.error('Error loading QA:', err);
     }
   }
 
-  function renderQA(container, items) {
-    container.innerHTML = "";
+  // ---------- CALCULATE STATISTICS ----------
+  function updateStatistics() {
+    // Calculate unique categories (subtopics)
+    const uniqueCategories = new Set();
+    allQuestions.forEach(q => {
+      if (q.subtopic && q.subtopic.trim()) {
+        uniqueCategories.add(q.subtopic.trim());
+      }
+    });
 
-    // Build FAQPage schema for SEO & AI
+    // Update DOM
+    const categoryCountEl = $('categoryCount');
+    const questionCountEl = $('questionCount');
+
+    if (categoryCountEl) {
+      animateNumber(categoryCountEl, uniqueCategories.size);
+    }
+
+    if (questionCountEl) {
+      animateNumber(questionCountEl, allQuestions.length);
+    }
+  }
+
+  // ---------- ANIMATE NUMBERS ----------
+  function animateNumber(element, target) {
+    let current = 0;
+    const increment = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = current.toLocaleString();
+    }, 30);
+  }
+
+  // ---------- SEARCH FUNCTIONALITY ----------
+  function initSearch() {
+    const searchInput = $('searchInput');
+    const searchClear = $('searchClear');
+    const initialMessage = $('initialMessage');
+    const qaListContainer = $('qaListContainer');
+    const searchInfo = $('searchInfo');
+    const resultCount = $('resultCount');
+
+    if (!searchInput) return;
+
+    let searchTimeout;
+
+    // Search input event
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+
+      // Show/hide clear button
+      if (searchClear) {
+        searchClear.style.display = query ? 'flex' : 'none';
+      }
+
+      // Debounce search
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        performSearch(query);
+      }, 300);
+    });
+
+    // Clear button
+    if (searchClear) {
+      searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+        searchClear.style.display = 'none';
+
+        // Hide results, show initial message
+        if (qaListContainer) qaListContainer.style.display = 'none';
+        if (initialMessage) initialMessage.style.display = 'block';
+        if (searchInfo) searchInfo.style.display = 'none';
+      });
+    }
+
+    // Popular tag clicks
+    document.querySelectorAll('.popular-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        const search = tag.getAttribute('data-search');
+        if (search && searchInput) {
+          searchInput.value = search;
+          searchInput.focus();
+          if (searchClear) searchClear.style.display = 'flex';
+          performSearch(search);
+        }
+      });
+    });
+  }
+
+  // ---------- PERFORM SEARCH ----------
+  function performSearch(query) {
+    const initialMessage = $('initialMessage');
+    const qaListContainer = $('qaListContainer');
+    const qaList = $('qaList');
+    const noResults = $('noResults');
+    const searchInfo = $('searchInfo');
+    const resultCount = $('resultCount');
+
+    // If query is empty, show initial message
+    if (!query) {
+      if (initialMessage) initialMessage.style.display = 'block';
+      if (qaListContainer) qaListContainer.style.display = 'none';
+      if (searchInfo) searchInfo.style.display = 'none';
+      return;
+    }
+
+    // Hide initial message, show results container
+    if (initialMessage) initialMessage.style.display = 'none';
+    if (qaListContainer) qaListContainer.style.display = 'block';
+
+    // Filter questions
+    const normalizedQuery = query.toLowerCase().trim();
+    const filtered = allQuestions.filter(q => {
+      const questionText = (q.question || '').toLowerCase();
+      const answerText = (q.answer || '').toLowerCase();
+      const topic = (q.topic || '').toLowerCase();
+      const subtopic = (q.subtopic || '').toLowerCase();
+
+      return questionText.includes(normalizedQuery) ||
+             answerText.includes(normalizedQuery) ||
+             topic.includes(normalizedQuery) ||
+             subtopic.includes(normalizedQuery);
+    });
+
+    // Update result count
+    if (resultCount) resultCount.textContent = filtered.length;
+    if (searchInfo) searchInfo.style.display = 'block';
+
+    // Show/hide no results
+    if (noResults && qaList) {
+      if (filtered.length === 0) {
+        noResults.style.display = 'block';
+        qaList.innerHTML = '';
+      } else {
+        noResults.style.display = 'none';
+        renderQuestions(filtered, normalizedQuery);
+      }
+    }
+  }
+
+  // ---------- RENDER QUESTIONS ----------
+  function renderQuestions(questions, highlightTerm = '') {
+    const qaList = $('qaList');
+    if (!qaList) return;
+
+    qaList.innerHTML = '';
+
+    // Build FAQPage schema for SEO
     const faqEntities = [];
 
-    items.forEach((q) => {
-      const slug = (q.slug || "").trim();
-      const topic = (q.topic || "").trim();
-      const subtopic = (q.subtopic || "").trim();
+    questions.forEach((q) => {
+      const slug = (q.slug || '').trim();
+      const topic = (q.topic || '').trim();
+      const subtopic = (q.subtopic || '').trim();
 
       const div = document.createElement("div");
       div.className = "qa-item";
       if (slug) div.id = slug;
 
-      // Add semantic HTML for AI-friendly structure
+      // Highlight matching terms
+      const questionHtml = highlightText(escapeHtml(q.question), highlightTerm);
+      const answerHtml = highlightText(escapeHtml(q.answer), highlightTerm);
+
       div.innerHTML = `
         <article itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <h3 itemprop="name">${escapeHtml(q.question)}</h3>
+          <h3 itemprop="name">${questionHtml}</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">${escapeHtml(q.answer)}</p>
+            <p itemprop="text">${answerHtml}</p>
           </div>
           <small class="qa-meta">${escapeHtml(topic)}${subtopic ? " / " + escapeHtml(subtopic) : ""}</small>
         </article>
       `;
 
-      container.appendChild(div);
+      qaList.appendChild(div);
 
       // Add to FAQPage schema
       faqEntities.push({
@@ -198,11 +245,23 @@
       });
     });
 
-    // Update FAQPage schema in document head
+    // Update FAQPage schema
     updateFAQSchema(faqEntities);
   }
 
-  // Update the FAQPage structured data dynamically
+  // ---------- HIGHLIGHT TEXT ----------
+  function highlightText(text, term) {
+    if (!term) return text;
+
+    const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+    return text.replace(regex, '<span class="highlight">$1</span>');
+  }
+
+  function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // ---------- UPDATE FAQ SCHEMA ----------
   function updateFAQSchema(faqEntities) {
     const schemaEl = $("faq-schema");
     if (!schemaEl) return;
@@ -218,7 +277,6 @@
 
   // ---------- INIT ----------
   document.addEventListener("DOMContentLoaded", () => {
-    initForm();
     loadQA();
   });
 })();

@@ -1,228 +1,194 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary Meta Tags -->
-  <title>Soru & Cevap - Almanya Hakkında Her Şey | Almanya101</title>
-  <meta name="title" content="Soru & Cevap - Almanya Hakkında Her Şey | Almanya101">
-  <meta name="description" content="Almanya'da yaşam hakkında en çok sorulan sorular ve cevaplar. Anmeldung, vize, iş bulma, sigorta, çocuk eğitimi ve bürokrasi konularında güvenilir bilgiler.">
-  <meta name="keywords" content="almanya soru cevap, almanya qa, anmeldung nasıl yapılır, almanya vize, almanya iş, sağlık sigortası, arbeitslosengeld, almanya bürokrasi">
-  <meta name="author" content="Almanya101.de">
-  <meta name="robots" content="index, follow">
+    <!-- Primary Meta Tags -->
+    <title>Soru & Cevap - Almanya101</title>
+    <meta name="description" content="Almanya'da yaşam hakkında 2500+ soru ve cevap. Anmeldung, vize, iş, sigorta ve daha fazlası.">
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://almanya101.de/qa/qa.html">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://almanya101.de/qa/qa.html">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://almanya101.de/qa/qa.html">
-  <meta property="og:title" content="Soru & Cevap - Almanya Hakkında Her Şey | Almanya101">
-  <meta property="og:description" content="Almanya'da yaşam hakkında en çok sorulan sorular ve cevaplar. Net, güvenilir bilgiler.">
-  <meta property="og:image" content="https://almanya101.de/og-image-qa.jpg">
-  <meta property="og:locale" content="tr_TR">
-  <meta property="og:site_name" content="Almanya101">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/qa/qa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://almanya101.de/qa/qa.html">
-  <meta name="twitter:title" content="Soru & Cevap - Almanya Hakkında Her Şey">
-  <meta name="twitter:description" content="Almanya'da yaşam hakkında en çok sorulan sorular ve cevaplar.">
-  <meta name="twitter:image" content="https://almanya101.de/og-image-qa.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/style-shared.css" />
-
-  <!-- Structured Data: Breadcrumb -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Ana Sayfa",
-        "item": "https://almanya101.de/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Soru & Cevap",
-        "item": "https://almanya101.de/qa/qa.html"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Structured Data: FAQPage (will be populated dynamically) -->
-  <script type="application/ld+json" id="faq-schema">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": []
-  }
-  </script>
-
-  <!-- Structured Data: WebPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://almanya101.de/qa/qa.html#webpage",
-    "url": "https://almanya101.de/qa/qa.html",
-    "name": "Soru & Cevap - Almanya Hakkında Her Şey",
-    "description": "Almanya'da yaşam hakkında en çok sorulan sorular ve güvenilir cevaplar. Anmeldung, vize, iş, sigorta, eğitim ve bürokrasi.",
-    "inLanguage": "tr",
-    "isPartOf": {
-      "@id": "https://almanya101.de/#website"
-    },
-    "breadcrumb": {
-      "@id": "https://almanya101.de/qa/qa.html#breadcrumb"
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json" id="faq-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": []
     }
-  }
-  </script>
+    </script>
 </head>
-<body>
-  <main class="container">
-    <!-- Breadcrumb Navigation (SEO + UX) -->
-    <nav aria-label="Breadcrumb" class="breadcrumb">
-      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a itemprop="item" href="/">
-            <span itemprop="name">Ana Sayfa</span>
-          </a>
-          <meta itemprop="position" content="1" />
-        </li>
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <span itemprop="name">Soru & Cevap</span>
-          <meta itemprop="position" content="2" />
-        </li>
-      </ol>
+<body class="qa-page">
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">
+                    <span class="logo-text">almanya<span class="logo-highlight">101</span></span>
+                    <span class="logo-dot">.</span><span class="logo-de">de</span>
+                </a>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Haber</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/haber/dunya" class="dropdown-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Dünya</span>
+                        </a>
+                        <a href="/haber/ekonomi" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Ekonomi</span>
+                        </a>
+                        <a href="/haber/gundem" class="dropdown-item">
+                            <i class="fas fa-fire"></i>
+                            <span>Gündem</span>
+                        </a>
+                        <a href="/haber/siyaset" class="dropdown-item">
+                            <i class="fas fa-landmark"></i>
+                            <span>Siyaset</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Araçlar</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-large">
+                        <a href="/araclar/maas-hesaplama" class="dropdown-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>Net Maaş Hesaplama</span>
+                        </a>
+                        <a href="/araclar/tatil-gunleri" class="dropdown-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Tatil Günleri</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/qa/qa.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Soru & Cevap</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://chat.whatsapp.com/JXzMvjJoc57EKDDABSB0jo" target="_blank" class="btn-primary">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Topluluğa Katıl</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </nav>
 
-    <header class="header">
-      <a class="badge" href="/index.html">← Ana sayfa</a>
-      <h1>Almanya Hakkında Soru & Cevap</h1>
-      <p class="muted">Almanya'da yaşam, vize, iş, sigorta ve bürokrasi hakkında en çok sorulan sorular ve güvenilir cevaplar.</p>
-    </header>
-
-    <!-- AI-Friendly Summary Section -->
-    <section class="card summary-section">
-      <h2>Bu Sayfada Neler Bulabilirsiniz?</h2>
-      <p>
-        <strong>Almanya101 Soru & Cevap</strong> platformunda Almanya'da yaşayan veya yaşamayı planlayan Türk expatlar için en önemli konularda net, doğru bilgiler bulabilirsiniz:
-      </p>
-      <ul>
-        <li><strong>Anmeldung & Abmeldung:</strong> Adres kaydı ve çıkış işlemleri</li>
-        <li><strong>Vize & Çalışma İzni:</strong> Oturma izni, iş vizesi başvuruları</li>
-        <li><strong>İş & Kariyer:</strong> İş bulma, işsizlik maaşı (Arbeitslosengeld)</li>
-        <li><strong>Sağlık Sigortası:</strong> Krankenversicherung, TA11 belgesi</li>
-        <li><strong>Aile & Çocuk:</strong> Okul sistemi, çocuk yardımları</li>
-        <li><strong>Bürokrasi:</strong> Formlar, belgeler, resmi işlemler</li>
-      </ul>
-      <p class="muted"><em>Tüm bilgiler güncel mevzuata ve resmi kaynaklara dayanmaktadır. Clickbait değil, gerçek bilgi.</em></p>
-    </section>
-
-    <!-- DB'den gelen QA listesi -->
-    <section class="card">
-      <h2>Sık Sorulan Sorular</h2>
-      <p class="muted">Aşağıdaki sorular ve cevaplar, topluluktan gelen en çok sorulan konular ve uzman yanıtlarıdır.</p>
-      <div id="qa-list" role="list" aria-label="Soru ve cevap listesi"></div>
-    </section>
-
-    <!-- Mail ile soru gönderme -->
-    <section class="card">
-      <h2>Sorunuzu Bize Gönderin</h2>
-      <p>Aradığınız cevabı bulamadınız mı? Sorunuzu aşağıdaki formdan bize gönderin. En kısa sürede cevaplayacağız.</p>
-
-      <form id="qaForm" novalidate aria-label="Soru gönderme formu">
-        <!-- Honeypot (botlar doldurur, insanlar görmez) -->
-        <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
-          <label for="website">Website</label>
-          <input class="input" type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+    <!-- Main Content -->
+    <main class="qa-main">
+        <!-- Logo Section -->
+        <div class="qa-logo-container">
+            <img src="/img/almanya101-logo.png" alt="Almanya101" class="qa-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="qa-logo-placeholder" style="display: none;">
+                <span class="logo-text-large">almanya<span class="logo-highlight">101</span><span class="logo-dot">.</span><span class="logo-de">de</span></span>
+            </div>
         </div>
 
-        <label for="question">Sorunuz <span aria-label="zorunlu alan">*</span></label>
-        <textarea
-          id="question"
-          name="question"
-          required
-          minlength="10"
-          maxlength="1500"
-          placeholder="Örn: Almanya'ya yeni geldim, Anmeldung nasıl yapılır? Hangi belgeler gerekli?"
-          aria-describedby="question-help"
-        ></textarea>
-        <div class="muted" id="question-help">
-          <small>
-            <span id="count">0</span>/1500 karakter. Lütfen sorunuzu net ve anlaşılır şekilde yazın.
-          </small>
+        <!-- Statistics Section -->
+        <div class="qa-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="categoryCount">0</div>
+                    <div class="stat-label">Kategori</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" id="questionCount">0</div>
+                    <div class="stat-label">Soru & Cevap</div>
+                </div>
+            </div>
         </div>
 
-        <div class="row">
-          <div>
-            <label for="email">E-posta (opsiyonel)</label>
-            <input
-              class="input"
-              id="email"
-              name="email"
-              type="email"
-              placeholder="siz@ornek.com"
-              aria-describedby="email-help"
-            />
-            <small class="muted" id="email-help">Cevap almak isterseniz e-postanızı bırakabilirsiniz.</small>
-          </div>
-          <div>
-            <label for="name">İsim (opsiyonel)</label>
-            <input
-              class="input"
-              id="name"
-              name="name"
-              type="text"
-              maxlength="120"
-              placeholder="Adınız"
-            />
-          </div>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Soru ara... (örn: anmeldung, vize, sigorta)"
+                    autocomplete="off"
+                >
+                <button class="search-clear" id="searchClear" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-results-info" id="searchInfo" style="display: none;">
+                <span id="resultCount">0</span> sonuç bulundu
+            </div>
         </div>
 
-        <div class="actions">
-          <button class="btn" id="submitBtn" type="submit">Soruyu Gönder</button>
-          <a class="btn secondary" href="/index.html">Vazgeç</a>
-          <span class="badge">İletişim: qa@almanya101.de</span>
+        <!-- Questions List (hidden by default) -->
+        <div class="qa-list-container" id="qaListContainer" style="display: none;">
+            <div id="qaList" class="qa-list"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>Aradığınız kriterlere uygun soru bulunamadı.</p>
+                <small>Farklı kelimeler deneyin veya aramanızı genişletin.</small>
+            </div>
         </div>
 
-        <div id="msg" class="msg" role="alert" aria-live="polite" style="display:none;"></div>
-      </form>
-    </section>
+        <!-- Initial Message -->
+        <div class="initial-message" id="initialMessage">
+            <i class="fas fa-search-plus"></i>
+            <h2>2500+ Soru İçinde Arama Yapın</h2>
+            <p>Yukarıdaki arama kutusunu kullanarak istediğiniz konuyu bulabilirsiniz.</p>
+            <div class="popular-searches">
+                <span class="popular-label">Popüler Aramalar:</span>
+                <button class="popular-tag" data-search="anmeldung">Anmeldung</button>
+                <button class="popular-tag" data-search="vize">Vize</button>
+                <button class="popular-tag" data-search="sigorta">Sigorta</button>
+                <button class="popular-tag" data-search="maaş">Maaş</button>
+                <button class="popular-tag" data-search="iş">İş Bulma</button>
+                <button class="popular-tag" data-search="çocuk">Çocuk</button>
+            </div>
+        </div>
+    </main>
 
-    <!-- İstatistikler & Güven Sinyalleri -->
-    <section class="card">
-      <h2>Neden Almanya101?</h2>
-      <ul>
-        <li>✅ <strong>Güvenilir bilgi:</strong> Tüm cevaplar güncel mevzuata dayanır</li>
-        <li>✅ <strong>Clickbait yok:</strong> Net, gerçek bilgiler</li>
-        <li>✅ <strong>Türkçe destek:</strong> Anlaşılır dil, teknik jargon yok</li>
-        <li>✅ <strong>Topluluk odaklı:</strong> Gerçek deneyimler</li>
-        <li>✅ <strong>Sürekli güncelleme:</strong> Mevzuat değişikliklerini takip ediyoruz</li>
-      </ul>
-    </section>
-
-    <!-- İlgili Sayfalar (Internal Linking) -->
-    <section class="card">
-      <h3>İlgili Konular</h3>
-      <nav aria-label="İlgili sayfalar">
-        <ul>
-          <li><a href="/araclar/maas-hesaplama">Net Maaş Hesaplama</a> - Brüt maaşınızdan ne kadar alacağınızı hesaplayın</li>
-          <li><a href="/araclar/vatandaslik-testi">Vatandaşlık Testi</a> - Almanya vatandaşlık sınavı soruları</li>
-          <li><a href="/sigorta">Sağlık Sigortası Rehberi</a> - Krankenversicherung hakkında her şey</li>
-          <li><a href="/araclar/ta11-belgesi">TA11 Belgesi</a> - TA11 belgesi nedir, nasıl alınır?</li>
-          <li><a href="/blog">Blog & Rehberler</a> - Detaylı konular ve deneyimler</li>
-        </ul>
-      </nav>
-    </section>
-  </main>
-
-  <script src="/qa/qa.js"></script>
+    <!-- Scripts -->
+    <script src="/scripts/main.js"></script>
+    <script src="/qa/qa.js"></script>
 </body>
 </html>
