@@ -43,11 +43,7 @@ Open:
 - http://localhost:3000/
 - http://localhost:3000/qa/qa.html
 
-## Notes
-- Site tamamen düz HTML/CSS/JS ile çalışır; Next.js veya TypeScript yoktur.
-- QA formu, Zoho SMTP ile e-posta gönderir ve veritabanına yazmaz.
-- Maaş hesaplayıcı, Supabase Postgres'e (table: `salary_submissions`) yazan sunucusuz API'lerle çalışır.
-- Supabase için gerekli ortam değişkenleri: `SUPABASE_URL` ve `SUPABASE_SERVICE_ROLE_KEY` (yalnızca backend).
+
 
 ## Türkçe Özet
 - Proje yapısı: statik ana sayfa (`index.html`), ortak stil dosyası (`style-shared.css`), Soru-Cevap sayfası (`qa/qa.html` + `qa/qa.js`) ve Vercel sunucusuz fonksiyonu (`api/qa-ask.js`).
