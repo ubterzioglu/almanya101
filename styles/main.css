@@ -252,9 +252,8 @@ a {
     left: 0;
     min-width: 250px;
     padding: var(--spacing-sm);
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
+    background: #000000;
+    border: 1px solid var(--yellow-primary);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     opacity: 0;
