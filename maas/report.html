@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maaş Raporu | Almanya 101</title>
+  <link rel="stylesheet" href="/style-shared.css" />
+  <link rel="stylesheet" href="/maas/css/report.css" />
+  <link rel="icon" type="image/png" href="/img/logoubt.png" />
+  <meta name="description" content="Net maaş raporu: brüt maaştan vergi ve sosyal güvenlik kesintileriyle elde edilen net tutar." />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__brand">
+      <img src="/img/logoubt.png" alt="UBT" class="masthead__logo" />
+      <div>
+        <div class="masthead__title">Maaş Raporu</div>
+        <div class="masthead__subtitle">Hesaplama özeti</div>
+      </div>
+    </div>
+    <a class="masthead__link" href="/maas/index.html">Yeniden hesapla</a>
+  </header>
+
+  <main class="report">
+    <section class="hero" id="hero">
+      <p class="hero__eyebrow">Net maaş</p>
+      <h1 class="hero__value" id="heroNet">—</h1>
+      <p class="hero__meta" id="heroMeta">Yükleniyor…</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Vergi kırılımı</h2>
+        <dl class="list" id="taxDetails"></dl>
+      </article>
+      <article class="card">
+        <h2>Sosyal güvenlik</h2>
+        <dl class="list" id="socialDetails"></dl>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Girdi özeti</h2>
+      <dl class="input-list" id="inputSummary"></dl>
+    </section>
+  </main>
+
+  <script src="/maas/js/report.js"></script>
+</body>
+</html>

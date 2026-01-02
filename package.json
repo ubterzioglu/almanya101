@@ -9,6 +9,7 @@
     "start": "npx vercel dev"
   },
   "dependencies": {
-    "nodemailer": "^6.9.14"
+    "nodemailer": "^6.9.14",
+    "@supabase/supabase-js": "^2.45.4"
   }
 }

@@ -1,13 +1,25 @@
 # almanya101.de (Static HTML) + QA Form (Zoho Mail)
 
-## Structurea
+## Structure
 - index.html
 - style-shared.css
 - qa/qa.html
 - qa/qa.js
 - api/qa-ask.js  (Vercel Serverless Function)
+- maas/ (Brüt→net maaş hesaplayıcı; düz HTML/CSS/JS)
+  - maas/index.html, maas/report.html
+  - maas/js/maas.js, maas/js/report.js
+  - maas/css/maas.css, maas/css/report.css
+- api/net-salary.js (maas için hesaplama + kayıt)
+- api/reports-get.js (maas raporlarını oku)
+- lib/supabase.js (yalnızca sunucu tarafı kullanım için Supabase istemcisi)
+- haberler/ (Supabase’ten okunan kart tabanlı haber listesi)
+  - haberler/haberindex.html
+  - haberler/js/haber.js
+  - haberler/css/haber.css
+- api/news-list.js (haberler için read-only listeleme)
 
-## Deplaaaoy (Vercelaaa)
+## Deploy (Vercel)
 1) Push this repo to GitHub
 2) Import into Vercel (New Project)
 3) Add Environment Variables (Project Settings -> Environment Variables)
@@ -37,5 +49,14 @@ Open:
 - http://localhost:3000/qa/qa.html
 
 ## Notes
-- This version does NOT write to DB; it only sends emails to qa@almanya101.de.
-- Later, you can add a DB table (QA1) and an admin panel to publish answers.
+- Site tamamen düz HTML/CSS/JS ile çalışır; Next.js veya TypeScript yoktur.
+- QA formu, Zoho SMTP ile e-posta gönderir ve veritabanına yazmaz.
+- Maaş hesaplayıcı, Supabase Postgres'e (table: `salary_submissions`) yazan sunucusuz API'lerle çalışır.
+- Haberler sayfası Supabase'deki `news_articles` tablosundan okur (sahalar: `id`, `title`, `summary`, `body`, `tag`, `created_at`),
+  görsel yolu otomatik olarak `/img/haberler/{id}.jpg` şeklinde hesaplanır.
+- Supabase için gerekli ortam değişkenleri: `SUPABASE_URL` ve `SUPABASE_SERVICE_ROLE_KEY` (yalnızca backend).
+
+## Türkçe Özet
+- Proje yapısı: statik ana sayfa (`index.html`), ortak stil dosyası (`style-shared.css`), Soru-Cevap sayfası (`qa/qa.html` + `qa/qa.js`) ve Vercel sunucusuz fonksiyonu (`api/qa-ask.js`).
+- Vercel’e dağıtırken Zoho SMTP bilgilerini ve alıcı e-posta adresini ortam değişkenleriyle tanımlamayı unutmayın.
+- Yerelde çalıştırmak için `npm i` ardından `npx vercel dev` komutlarını kullanın; form yalnızca e-posta gönderir, veritabanına yazmaz.
