@@ -14,7 +14,6 @@
 - api/reports-get.js (maas raporlarını oku)
 - lib/supabase.js (yalnızca sunucu tarafı kullanım için Supabase istemcisi)
 
-## Deploy (Vercel) Neler oluyor?
 1) Push this repo to GitHub
 2) Import into Vercel (New Project)
 3) Add Environment Variables (Project Settings -> Environment Variables)
@@ -42,8 +41,6 @@ npx vercel dev
 Open:
 - http://localhost:3000/
 - http://localhost:3000/qa/qa.html
-
-
 
 ## Türkçe Özet
 - Proje yapısı: statik ana sayfa (`index.html`), ortak stil dosyası (`style-shared.css`), Soru-Cevap sayfası (`qa/qa.html` + `qa/qa.js`) ve Vercel sunucusuz fonksiyonu (`api/qa-ask.js`).
