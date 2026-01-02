@@ -7,7 +7,7 @@
 - qa/qa.js
 - api/qa-ask.js  (Vercel Serverless Function)
 
-## Deploy (Vercel)
+## Deploy (Vercelaaa)
 1) Push this repo to GitHub
 2) Import into Vercel (New Project)
 3) Add Environment Variables (Project Settings -> Environment Variables)
