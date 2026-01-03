@@ -24,30 +24,52 @@
   // ---------- LOAD QA DATA ----------
   async function loadQA() {
     try {
-      const url =
-        `${SUPABASE_URL}/rest/v1/qa1` +
-        `?select=topic,subtopic,question,answer,slug` +
-        `&is_published=eq.true` +
-        `&order=created_at.desc` +
-        `&limit=3000`; // Increased limit to fetch all questions
+      // Fetch all questions with pagination (Supabase default limit is 1000)
+      let allData = [];
+      let offset = 0;
+      const limit = 1000;
+      let hasMore = true;
 
-      const res = await fetch(url, {
-        headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-          'Range': '0-2999' // Supabase pagination range
+      while (hasMore) {
+        const url =
+          `${SUPABASE_URL}/rest/v1/qa1` +
+          `?select=topic,subtopic,question,answer,slug` +
+          `&is_published=eq.true` +
+          `&order=created_at.desc` +
+          `&limit=${limit}` +
+          `&offset=${offset}`;
+
+        const res = await fetch(url, {
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'count=exact'
+          }
+        });
+
+        if (!res.ok) {
+          console.error('Failed to load QA data:', res.status);
+          break;
         }
-      });
 
-      if (!res.ok) {
-        console.error('Failed to load QA data:', res.status);
-        return;
+        const data = await res.json();
+
+        if (Array.isArray(data) && data.length > 0) {
+          allData = allData.concat(data);
+          offset += limit;
+
+          // If we got less than limit, we've reached the end
+          if (data.length < limit) {
+            hasMore = false;
+          }
+        } else {
+          hasMore = false;
+        }
       }
 
-      const data = await res.json();
-
-      if (Array.isArray(data) && data.length > 0) {
-        allQuestions = data;
+      if (allData.length > 0) {
+        allQuestions = allData;
+        console.log(`Loaded ${allQuestions.length} questions`);
         updateStatistics();
         initSearch();
       }
