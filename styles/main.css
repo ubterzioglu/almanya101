@@ -214,6 +214,13 @@ a {
     position: relative;
 }
 
+.nav-separator {
+    width: 1px;
+    height: 24px;
+    background: var(--glass-border);
+    margin: 0 var(--spacing-sm);
+}
+
 .nav-link {
     display: flex;
     align-items: center;
@@ -252,7 +259,7 @@ a {
     left: 0;
     min-width: 250px;
     padding: var(--spacing-sm);
-    background: var(--glass-bg);
+    background: rgba(10, 10, 10, 0.98); /* Solid background for readability */
     backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
@@ -308,20 +315,24 @@ a {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--red-accent); /* CTA - Türkiye red */
+    background: #25D366; /* WhatsApp Green */
     color: white;
     border-radius: var(--radius-full);
     font-weight: 600;
     font-size: 0.95rem;
-    box-shadow: 0 0 20px rgba(208, 0, 0, 0.3);
-    border: 1px solid rgba(208, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+    border: 1px solid rgba(37, 211, 102, 0.5);
     transition: all var(--transition-base);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    background: #FF0000; /* Brighter red on hover */
-    box-shadow: 0 0 30px rgba(208, 0, 0, 0.6);
+    background: #20BA5A; /* Darker WhatsApp green on hover */
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+}
+
+.btn-primary i.fa-whatsapp {
+    font-size: 1.2rem;
 }
 
 /* Mobile Menu Toggle */
@@ -667,24 +678,42 @@ section {
    CATEGORIES SECTION
    ============================================ */
 .categories {
-    background: var(--bg-secondary);
+    /* background removed for seamless transition */
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .category-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 .category-card {
     position: relative;
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-lg);
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-xl);
     transition: all var(--transition-base);
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .category-card {
+        padding: var(--spacing-xl);
+    }
 }
 
 .category-card::before {
@@ -732,15 +761,23 @@ section {
 }
 
 .category-icon {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-xl);
-    font-size: 1.75rem;
-    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
     transition: all var(--transition-base);
+}
+
+@media (min-width: 768px) {
+    .category-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+    }
 }
 
 .category-card:hover .category-icon {
@@ -787,15 +824,46 @@ section {
     color: #F2C94C;
 }
 
+.icon-bank {
+    background: linear-gradient(135deg, rgba(242, 201, 76, 0.25) 0%, rgba(255, 217, 102, 0.2) 100%);
+    color: var(--yellow-primary);
+}
+
+.icon-holiday {
+    background: linear-gradient(135deg, rgba(255, 217, 102, 0.25) 0%, rgba(242, 201, 76, 0.2) 100%);
+    color: #FFD966;
+}
+
+.icon-transfer {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.2) 100%);
+    color: #10b981;
+}
+
 .category-title {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-md);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+    .category-title {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-md);
+    }
 }
 
 .category-description {
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+    .category-description {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.7;
+    }
 }
 
 .category-tags {
@@ -836,6 +904,7 @@ section {
    POPULAR TOPICS
    ============================================ */
 .popular-topics {
+    /* background kept as primary for contrast */
     background: var(--bg-primary);
 }
 
@@ -895,7 +964,7 @@ section {
    CTA SECTION
    ============================================ */
 .cta-section {
-    background: var(--bg-secondary);
+    /* background removed for seamless transition */
 }
 
 .cta-card {
