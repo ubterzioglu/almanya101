@@ -13,9 +13,41 @@
   <!-- Q&A Page - High priority, updated frequently -->
   <url>
     <loc>https://almanya101.de/qa/qa.html</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-01-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- News Page -->
+  <url>
+    <loc>https://almanya101.de/haberler/haberindex.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Salary Calculator -->
+  <url>
+    <loc>https://almanya101.de/maas/index.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- German Holidays -->
+  <url>
+    <loc>https://almanya101.de/tatilde/holiday.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Turkish Holidays -->
+  <url>
+    <loc>https://almanya101.de/tatiltr/holiday.html</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Future pages (template for expansion) -->
