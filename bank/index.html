@@ -3,15 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>almanya101 — Banka Seçici</title>
+  <title>Banka Seçici | Almanya101</title>
   <meta name="description" content="15 soruda Almanya için bankacılık önerisi: dijital banka, direkt banka veya yerel banka profili."/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="/">
+          <span class="logo-text">almanya<span class="logo-highlight">101</span></span>
+          <span class="logo-dot">.</span><span class="logo-de">de</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <a href="/" class="btn-secondary" style="padding: 0.5rem 1rem; background: rgba(26, 26, 26, 0.95); border: 1px solid rgba(242, 201, 76, 0.2); border-radius: 999px; color: #F2C94C; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-home"></i>
+          <span>Ana Sayfa</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <div class="bg-glow"></div>
 
-  <main class="app" id="app">
+  <main class="app" id="app" style="margin-top: 80px;">
     <header class="header">
       <div class="brand">
         <div class="logo-dot"></div>
@@ -69,12 +95,47 @@
       </p>
     </section>
 
-    <footer class="footer">
-      <span class="pill">Palette: <b>Mor</b> • <b>Sarı</b> • <b>Kırmızı</b> • <b>Beyaz</b></span>
-      <span class="pill">Arka plan: Siyah</span>
-      <span class="pill">almanya101.de</span>
-    </footer>
   </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="background: var(--bg-secondary); padding: 3rem 1.5rem 2rem;">
+    <div class="container" style="max-width: 1400px; margin: 0 auto;">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+        <div class="footer-col">
+          <div class="footer-logo" style="margin-bottom: 1rem;">
+            <span class="logo-text">almanya<span class="logo-highlight">101</span></span>
+            <span class="logo-dot">.</span><span class="logo-de">de</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Almanya'daki Türkler için kapsamlı rehber. Her konuda, her zaman yanınızda.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Araçlar</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin: 0.5rem 0;"><a href="/maas/index.html" style="color: var(--text-secondary); transition: color 0.2s;">Maaş Hesaplama</a></li>
+            <li style="margin: 0.5rem 0;"><a href="/bank/index.html" style="color: var(--text-secondary); transition: color 0.2s;">Banka Seçimi</a></li>
+            <li style="margin: 0.5rem 0;"><a href="/insurance/index.html" style="color: var(--text-secondary); transition: color 0.2s;">Sigorta Seçimi</a></li>
+            <li style="margin: 0.5rem 0;"><a href="/transfer/index.html" style="color: var(--text-secondary); transition: color 0.2s;">Para Transferi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Hızlı Linkler</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin: 0.5rem 0;"><a href="/haberler/haberindex.html" style="color: var(--text-secondary); transition: color 0.2s;">Haberler</a></li>
+            <li style="margin: 0.5rem 0;"><a href="/tatilde/holiday.html" style="color: var(--text-secondary); transition: color 0.2s;">Tatil Planlayıcı</a></li>
+            <li style="margin: 0.5rem 0;"><a href="/qa/qa.html" style="color: var(--text-secondary); transition: color 0.2s;">Soru & Cevap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid rgba(242, 201, 76, 0.2); padding-top: 1.5rem; text-align: center; color: var(--text-secondary);">
+        <p>&copy; 2026 Almanya101.de - Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="./script.js"></script>
 </body>
