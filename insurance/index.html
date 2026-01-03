@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>almanya101 — Sigorta Prioritizer</title>
+  <meta name="description" content="15 soruda Almanya için sigorta önceliklendirme: Önce Al, Güçlü Öneri, Opsiyonel."/>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <main class="app" id="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo-dot"></div>
+        <div class="brand-text">
+          <div class="brand-top">almanya101</div>
+          <div class="brand-sub">Sigorta Prioritizer • 15 soru</div>
+        </div>
+      </div>
+
+      <div class="progress-wrap" aria-label="İlerleme">
+        <div class="progress-meta">
+          <span id="progressText">Soru 1 / 15</span>
+          <button class="btn btn-ghost" id="restartBtn" type="button" title="Yeniden başlat">Sıfırla</button>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="card" id="qaCard">
+      <div class="card-head">
+        <h1 id="qTitle">Yükleniyor…</h1>
+        <p id="qDesc" class="muted"></p>
+      </div>
+
+      <div id="answers" class="answers"></div>
+
+      <div class="card-foot">
+        <button class="btn btn-ghost" id="backBtn" type="button">Geri</button>
+        <div class="foot-right">
+          <span class="muted" id="hintText"></span>
+          <button class="btn btn-primary" id="nextBtn" type="button" disabled>Devam</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card result hidden" id="resultCard">
+      <div class="card-head">
+        <h2>Önceliklendirme Sonucu</h2>
+        <p class="muted">Cevaplarına göre sigortaları 3 katmanda sıraladım.</p>
+      </div>
+
+      <div class="tier-grid">
+        <div class="tier">
+          <div class="tier-head">
+            <span class="tier-tag yellow"><span class="dot"></span>Önce Al (yüksek öncelik)</span>
+          </div>
+          <div id="tierMust" class="tier-body"></div>
+        </div>
+
+        <div class="tier">
+          <div class="tier-head">
+            <span class="tier-tag purple"><span class="dot"></span>Güçlü Öneri (duruma bağlı)</span>
+          </div>
+          <div id="tierShould" class="tier-body"></div>
+        </div>
+
+        <div class="tier">
+          <div class="tier-head">
+            <span class="tier-tag red"><span class="dot"></span>Opsiyonel (istersen)</span>
+          </div>
+          <div id="tierNice" class="tier-body"></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="result-actions">
+        <button class="btn btn-ghost" id="editBtn" type="button">Cevapları düzenle</button>
+        <button class="btn btn-accent" id="copyBtn" type="button">Sonucu kopyala</button>
+      </div>
+
+      <p class="tiny muted">
+        Not: Bu araç bilgilendirme amaçlıdır. Sigorta “zorunlu mu / şartları nedir” gibi konular kişisel duruma göre değişebilir.
+        Özellikle sağlık sigortası türü (GKV/PKV), iş durumu, aile durumu ve araç/konut gibi faktörleri sözleşme öncesi kontrol et.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <span class="pill">Palette: <b>Mor</b> • <b>Sarı</b> • <b>Kırmızı</b> • <b>Beyaz</b></span>
+      <span class="pill">Arka plan: Siyah</span>
+      <span class="pill">almanya101.de</span>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
