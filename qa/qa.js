@@ -28,12 +28,14 @@
         `${SUPABASE_URL}/rest/v1/qa1` +
         `?select=topic,subtopic,question,answer,slug` +
         `&is_published=eq.true` +
-        `&order=created_at.desc`;
+        `&order=created_at.desc` +
+        `&limit=3000`; // Increased limit to fetch all questions
 
       const res = await fetch(url, {
         headers: {
           apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          'Range': '0-2999' // Supabase pagination range
         }
       });
 
